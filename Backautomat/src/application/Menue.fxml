@@ -6,6 +6,6 @@
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
    <children>
-      <Button layoutX="601.0" layoutY="374.0" mnemonicParsing="false" text="Wer das lies ist doof" />
+      <Button layoutX="601.0" layoutY="374.0" mnemonicParsing="false" text="Wer das liest ist doof" />
    </children>
 </AnchorPane>
