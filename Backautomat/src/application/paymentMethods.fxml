@@ -15,7 +15,7 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
          <children>
-            <ToolBar accessibleRole="TEXT" layoutX="36.0" layoutY="40.0" prefHeight="200.0" prefWidth="1884.0" style="-fx-background-color: ffffff;" AnchorPane.bottomAnchor="860.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1900.0" style="-fx-background-color: ffffff;" AnchorPane.bottomAnchor="860.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <items>
                   <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-color: ff8800; -fx-min-height: 150; -fx-min-width: 150; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
                      <font>
