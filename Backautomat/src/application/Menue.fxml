@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="716.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menü">
+      <Text layoutX="716.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menütest">
          <font>
-            <Font size="70.0" />
+            <Font name="Rampage Brush" size="70.0" />
          </font>
       </Text>
       <Button layoutX="70.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: ff8800; -fx-background-radius: 40;" text="&lt;---- Zurück">
