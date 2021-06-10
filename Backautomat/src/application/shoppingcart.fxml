@@ -76,7 +76,7 @@
       </AnchorPane>
       <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1880.0" style="-fx-background-color: ffffff;">
          <items>
-            <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
+            <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
                <font>
                   <Font name="Apple Symbols" size="30.0" />
                </font>
@@ -84,9 +84,9 @@
                   <Insets />
                </opaqueInsets>
                <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../icons/backArrow.png" />
+                        <Image url="@../../res/gui_images/backArrow.png" />
                      </image>
                   </ImageView>
                </graphic>

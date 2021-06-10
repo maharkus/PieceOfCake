@@ -27,7 +27,7 @@
                      <graphic>
                         <ImageView fitHeight="85.0" fitWidth="100.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../icons/backArrow.png" />
+                              <Image url="@../../res/gui_images/backArrow.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -45,7 +45,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../icons/ec.png" />
+                              <Image url="@../../res/paymentmethods_images/visa.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -54,7 +54,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../icons/visa.png" />
+                              <Image url="@../../res/paymentmethods_images/mastercard.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -63,7 +63,7 @@
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../icons/mastercard.png" />
+                              <Image url="@../../res/paymentmethods_images/ec.png" />
                            </image>
                         </ImageView>
                      </graphic>

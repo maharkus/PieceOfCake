@@ -109,7 +109,7 @@
       </GridPane>
       <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1880.0" style="-fx-background-color: ffffff;">
          <items>
-            <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
+            <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
                <font>
                   <Font name="Apple Symbols" size="30.0" />
                </font>
@@ -117,29 +117,43 @@
                   <Insets />
                </opaqueInsets>
                <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../icons/backArrow.png" />
+                        <Image url="@../../res/gui_images/backArrow.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
             <Pane prefHeight="200.0" prefWidth="32.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="1133.4469909667969">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="1080.0">
                <font>
                   <Font name="Rampage Brush" size="140.0" />
                </font>
             </Text>
-            <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="Lupe">
+            <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;">
                <font>
                   <Font name="Courier New" size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/gui_images/lupe.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Pane prefHeight="200.0" prefWidth="32.0" />
-            <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: ff8800; -fx-background-radius: 40;" text="Warenkorb">
+            <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="360.0" style="-fx-background-color: ff8800; -fx-background-radius: 40;" text=" 00,00€">
                <font>
-                  <Font name="Courier New" size="20.0" />
+                  <Font name="Courier New Bold" size="45.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/gui_images/warenkorb.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </items>
       </ToolBar>
