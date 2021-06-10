@@ -28,30 +28,22 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 
-		ArrayList<Person> pl = new ArrayList<Person>();
+		ArrayList<Product> pl = new ArrayList<Product>();
 
 		try {
 
 			Database database = new Database();
 
 			database.createConnection();
-			ResultSet results = database.getStatement().executeQuery("SELECT * FROM Test");
+			ResultSet results = database.getStatement().executeQuery("SELECT * FROM produkte");
 
 			while (results.next()) {
-				Person p = new Person();
-				p.setId(results.getInt("id"));
-				p.setNachname(results.getString("nachname"));
-				p.setVorname(results.getString("vorname"));
+				Product p =new Product();
+				p.setId(results.getInt("index"));
+				p.setKategorie(results.getString("kategorie"));
+				p.setProduktname(results.getString("produktname"));
 				pl.add(p);
 			}
-			
-			Person person = new Person("Johann", "Meier");
-			
-			String sqlCommand = "INSERT INTO Test (id, vorname, nachname) VALUES ( NULL, '" + person.getVorname() + "','" + person.getNachname() + "')";
-			database.getStatement().executeUpdate(sqlCommand);
-
-			database.getConnection().close();
-			database.createConnection();
 
 			pl.forEach((item) -> {
 				System.out.println(item.toString());
