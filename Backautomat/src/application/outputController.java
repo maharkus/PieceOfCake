@@ -18,5 +18,4 @@ public class outputController {
     	Stage window = (Stage) backToMenu.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
     }
-
 }

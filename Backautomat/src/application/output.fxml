@@ -10,7 +10,7 @@
 
 <VBox prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.outputController">
    <children>
-      <Button fx:id="backToMenu" mnemonicParsing="false" onAction="#handleBtBackToMenu" style="-fx-background-color: black;">
+      <Button fx:id="backToMenu" mnemonicParsing="false" onAction="#handleBtBackToMenu" style="-fx-border-width: 0;">
          <graphic>
             <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: ffffff;">
                <children>
