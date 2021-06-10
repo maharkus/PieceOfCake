@@ -8,16 +8,16 @@ import java.util.ArrayList;
 
 import application.classes.*;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("Sample.fxml"));
-			Scene scene = new Scene(root, 400, 400);
+			Parent root = FXMLLoader.load(getClass().getResource("paymentMethods.fxml"));
+			Scene scene = new Scene(root, 1920, 1080);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.paymentMethodsController">
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
          <children>
@@ -41,7 +41,7 @@
                         <Font name="Courier Bold" size="70.0" />
                      </font>
                   </Text>
-                  <Button layoutX="400.0" layoutY="250.0" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 32; -fx-pref-height: 300; -fx-pref-width: 300; -fx-border-color: black; -fx-border-radius: 32; -fx-border-width: 8;">
+                  <Button fx:id="visaBt" layoutX="400.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleBtVisa" style="-fx-background-color: ffffff; -fx-background-radius: 32; -fx-pref-height: 300; -fx-pref-width: 300; -fx-border-color: black; -fx-border-radius: 32; -fx-border-width: 8;">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +50,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="760.0" layoutY="250.0" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 32; -fx-pref-height: 300; -fx-pref-width: 300; -fx-border-color: black; -fx-border-radius: 32; -fx-border-width: 8;">
+                  <Button fx:id="mastercardBt" layoutX="760.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleBtMastercard" style="-fx-background-color: ffffff; -fx-background-radius: 32; -fx-pref-height: 300; -fx-pref-width: 300; -fx-border-color: black; -fx-border-radius: 32; -fx-border-width: 8;">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -59,7 +59,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="1120.0" layoutY="250.0" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 32; -fx-pref-height: 300; -fx-pref-width: 300; -fx-border-color: black; -fx-border-radius: 32; -fx-border-width: 8;">
+                  <Button fx:id="ecBt" layoutX="1120.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleBtEC" style="-fx-background-color: ffffff; -fx-background-radius: 32; -fx-pref-height: 300; -fx-pref-width: 300; -fx-border-color: black; -fx-border-radius: 32; -fx-border-width: 8;">
                      <graphic>
                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
