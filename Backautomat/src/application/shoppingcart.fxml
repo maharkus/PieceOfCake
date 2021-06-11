@@ -75,7 +75,7 @@
             </AnchorPane>
             <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1880.0" style="-fx-background-color: ffffff;">
                <items>
-                  <Button fx:id="goBackBt" cache="true" depthTest="ENABLE" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
+                  <Button fx:id="goBackBt" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#handleBtBack" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
                      <font>
                         <Font name="Apple Symbols" size="30.0" />
                      </font>

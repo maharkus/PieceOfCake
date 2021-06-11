@@ -36,7 +36,7 @@ public class shoppingCartController {
     }
 
     public void handleBtBack() throws Exception {
-    	Parent root = FXMLLoader.load(getClass().getResource("shoppingcart.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("menue.fxml"));
     	
     	Stage window = (Stage) goBackBt.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
