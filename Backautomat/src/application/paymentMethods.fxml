@@ -15,9 +15,9 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: ffffff;" VBox.vgrow="ALWAYS">
          <children>
-            <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1900.0" style="-fx-background-color: ffffff;" AnchorPane.bottomAnchor="860.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1900.0" style="-fx-background-color: ffffff;">
                <items>
-                  <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" style="-fx-background-color: ff8800; -fx-min-height: 150; -fx-min-width: 150; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
+                  <Button fx:id="goBackBt" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#handleBtGoBack" style="-fx-background-color: ff8800; -fx-min-height: 150; -fx-min-width: 150; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
                      <font>
                         <Font name="Apple Symbols" size="30.0" />
                      </font>
@@ -32,6 +32,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font name="Rampage Brush" size="140.0" />
+                     </font>
+                  </Text>
                </items>
             </ToolBar>
             <Pane layoutX="60.0" layoutY="260.0" prefHeight="800.0" prefWidth="1840.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="240.0">
