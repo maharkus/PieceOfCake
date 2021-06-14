@@ -30,6 +30,8 @@ public class shoppingCartController {
     
     public void handleBtBuy() throws Exception {
     	Parent root = FXMLLoader.load(getClass().getResource("paymentMethods.fxml"));
+
+    	Main.history.add("shoppingcart.fxml");
     	
     	Stage window = (Stage) buyBt.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
@@ -38,7 +40,6 @@ public class shoppingCartController {
     public void handleBtBack() throws Exception {
     	
     	String lastScene = Main.history.get(Main.history.size()-1);
-    	System.out.println(Main.history.size());
     	
     	Parent root = FXMLLoader.load(getClass().getResource(lastScene));
     	Stage window = (Stage) goBackBt.getScene().getWindow();
