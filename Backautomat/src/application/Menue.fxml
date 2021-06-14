@@ -16,7 +16,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.toolBarController">
    <children>
-      <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;">
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;">
          <children>
             <GridPane layoutX="520.0" layoutY="329.0" prefHeight="716.0" prefWidth="1400.0">
                <columnConstraints>
@@ -30,7 +30,7 @@
                   <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="360.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button  contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brot">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Brot">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brötchen" GridPane.columnIndex="3">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Brötchen" GridPane.columnIndex="3">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Sandwiches" GridPane.columnIndex="1">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Sandwiches" GridPane.columnIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Kuchen" GridPane.columnIndex="2">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Kuchen" GridPane.columnIndex="2">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Dounuts" GridPane.rowIndex="1">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Dounuts" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,7 +90,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Süßwaren" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Süßwaren" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Softdrinks" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Softdrinks" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -114,7 +114,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Heißgetränke" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Heißgetränke" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -178,7 +178,7 @@
                   </Button>
                </items>
             </ToolBar>
-            <GridPane layoutX="54.0" layoutY="343.0" prefHeight="660.0" prefWidth="400.0" style="-fx-background-color: 0;">
+            <GridPane layoutX="54.0" layoutY="343.0" prefHeight="660.0" prefWidth="400.0" style="-fx-background-color: ffffff;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -202,7 +202,7 @@
                   <ImageView fitHeight="325.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü" GridPane.rowIndex="1">
                      <font>
-                        <Font size="32.0" />
+                        <Font name="Courier New Bold" size="32.0" />
                      </font>
                      <GridPane.margin>
                         <Insets bottom="300.0" />
