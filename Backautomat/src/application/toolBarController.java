@@ -27,17 +27,27 @@ public class toolBarController {
 
     @FXML
     void handleBtGoBack(ActionEvent event) throws IOException {
-    	//Parent root = FXMLLoader.load(getClass()...;				+++i want to load previous scene+++
+
+    	String lastScene = Main.history.get(Main.history.size()-1);
+    	System.out.println(Main.history.size());
     	
-    	//Stage window = (Stage) goBackBt.getScene().getWindow();
-    	//window.setScene(new Scene(root, 1920, 1080));
+    	Parent root = FXMLLoader.load(getClass().getResource(lastScene));
+    	Stage window = (Stage) goBackBt.getScene().getWindow();
+    	window.setScene(new Scene(root, 1920, 1080));
+    	
+    	
+    	Main.history.remove(Main.history.size()-1);
     }
 
     @FXML
     void handleBtSc(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("shoppingcart.fxml"));
+
+    	Main.history.add("Menue.fxml");
     	
-    	Stage window = (Stage) scBt.getScene().getWindow();
+
+
+    	Parent root = FXMLLoader.load(getClass().getResource("shoppingcart.fxml"));
+    	Stage window = (Stage) goBackBt.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
     }
 

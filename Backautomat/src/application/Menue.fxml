@@ -14,8 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.toolBarController">
    <children>
       <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: 0;">
          <children>
@@ -31,7 +30,7 @@
                   <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="360.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brot">
+                  <Button  contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brot">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -131,7 +130,7 @@
             </GridPane>
             <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1880.0" style="-fx-background-color: ffffff;">
                <items>
-                  <Button cache="true" depthTest="ENABLE" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
+                  <Button fx:id="goBackBt" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#handleBtGoBack" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
                      <font>
                         <Font name="Apple Symbols" size="30.0" />
                      </font>
@@ -165,7 +164,7 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="200.0" prefWidth="32.0" />
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="360.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text=" 00,00€">
+                  <Button fx:id="scBt" mnemonicParsing="false" onAction="#handleBtSc" prefHeight="150.0" prefWidth="360.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text=" 00,00€">
                      <font>
                         <Font name="Courier Bold" size="45.0" />
                      </font>

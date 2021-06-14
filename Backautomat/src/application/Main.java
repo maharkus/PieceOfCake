@@ -13,10 +13,13 @@ import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
+
+    public static ArrayList<String> history = new ArrayList<String>();
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("productsOverview.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("startScreen.fxml"));
 			Scene scene = new Scene(root, 1920, 1080);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -24,6 +27,7 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	public static void main(String[] args) {

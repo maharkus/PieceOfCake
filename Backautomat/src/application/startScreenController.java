@@ -19,6 +19,9 @@ public class startScreenController {
     void handleBtStart(ActionEvent event) throws IOException {
     	Parent root = FXMLLoader.load(getClass().getResource("Menue.fxml"));
     	
+    	Main.history.add("startScreen.fxml");
+    	
+    	
     	Stage window = (Stage) startBt.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
     }

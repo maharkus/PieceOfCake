@@ -36,9 +36,15 @@ public class shoppingCartController {
     }
 
     public void handleBtBack() throws Exception {
-    	Parent root = FXMLLoader.load(getClass().getResource("menue.fxml"));
     	
+    	String lastScene = Main.history.get(Main.history.size()-1);
+    	System.out.println(Main.history.size());
+    	
+    	Parent root = FXMLLoader.load(getClass().getResource(lastScene));
     	Stage window = (Stage) goBackBt.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
+    	
+    	
+    	Main.history.remove(Main.history.size()-1);
     }
 }
