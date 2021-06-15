@@ -1,4 +1,3 @@
-
 package application;
 
 import java.io.IOException;
@@ -9,10 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class MenuController {
+public class productsOverviewController {
 
 	@FXML
 	private Button goBackBt;
@@ -22,14 +20,6 @@ public class MenuController {
 
 	@FXML
 	private Button scBt;
-
-	@FXML
-	private TextField searchTxt;
-
-	@FXML
-	private Button catBreadBt;
-	
-
 
 	@FXML
 	void handleBtGoBack(ActionEvent event) throws IOException {
@@ -47,24 +37,9 @@ public class MenuController {
 	@FXML
 	void handleBtSc(ActionEvent event) throws IOException {
 
-		Main.history.add("Menue.fxml");
+		Main.history.add("productsOverview.fxml");
 
 		Parent root = FXMLLoader.load(getClass().getResource("shoppingcart.fxml"));
-		Stage window = (Stage) goBackBt.getScene().getWindow();
-		window.setScene(new Scene(root, 1920, 1080));
-	}
-
-	@FXML
-	void handleBtSearch(ActionEvent event) {
-
-	}
-
-	@FXML
-	void handleCatSelection(ActionEvent event) throws IOException {
-
-		Main.history.add("Menue.fxml");
-
-		Parent root = FXMLLoader.load(getClass().getResource("productsOverview.fxml"));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
 		window.setScene(new Scene(root, 1920, 1080));
 

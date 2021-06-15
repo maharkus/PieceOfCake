@@ -44,8 +44,6 @@ public class toolBarController {
 
     	Main.history.add("Menue.fxml");
     	
-
-
     	Parent root = FXMLLoader.load(getClass().getResource("shoppingcart.fxml"));
     	Stage window = (Stage) goBackBt.getScene().getWindow();
     	window.setScene(new Scene(root, 1920, 1080));
