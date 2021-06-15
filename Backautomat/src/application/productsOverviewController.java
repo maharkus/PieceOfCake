@@ -26,6 +26,7 @@ public class productsOverviewController {
 
 		String lastScene = Main.history.get(Main.history.size() - 1);
 		System.out.println(Main.history.size());
+    	System.out.println("clicked");
 
 		Parent root = FXMLLoader.load(getClass().getResource(lastScene));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
