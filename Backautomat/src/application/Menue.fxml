@@ -30,7 +30,7 @@
                   <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="360.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brot">
+<Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Brot">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
