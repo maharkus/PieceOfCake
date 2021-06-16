@@ -30,7 +30,7 @@ public class MenuController {
 	private Button catBreadBt;
 
 	@FXML
-	private Button catBreadBt;
+	private Button catSuesgebaeckBt;
 
 	@FXML
 	private Button catBroetchenBt;
@@ -52,7 +52,6 @@ public class MenuController {
 
 	@FXML
 	private Button catHotdrinksBt;
-
 
 	@FXML
 	void handleBtGoBack(ActionEvent event) throws IOException {
