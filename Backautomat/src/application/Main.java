@@ -15,7 +15,8 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 
     public static ArrayList<String> history = new ArrayList<String>();
-	
+    public static String selectedCat;
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -32,32 +33,6 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 
-		ArrayList<Product> pl = new ArrayList<Product>();
-
-		try {
-
-			Database database = new Database();
-
-			database.createConnection();
-			ResultSet results = database.getStatement().executeQuery("SELECT * FROM produkte");
-
-			while (results.next()) {
-				Product p =new Product();
-				p.setId(results.getInt("index"));
-				p.setKategorie(results.getString("kategorie"));
-				p.setProduktname(results.getString("produktname"));
-				pl.add(p);
-			}
-
-			pl.forEach((item) -> {
-				System.out.println(item.toString());
-			});
-
-			database.getConnection().close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		launch(args);
 	}
 }
