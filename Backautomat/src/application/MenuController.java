@@ -28,7 +28,30 @@ public class MenuController {
 
 	@FXML
 	private Button catBreadBt;
-	
+
+	@FXML
+	private Button catBreadBt;
+
+	@FXML
+	private Button catBroetchenBt;
+
+	@FXML
+	private Button catSandwichBt;
+
+	@FXML
+	private Button catCakeBt;
+
+	@FXML
+	private Button catDonutsBt;
+
+	@FXML
+	private Button catSweetsBt;
+
+	@FXML
+	private Button catSoftdrinksBt;
+
+	@FXML
+	private Button catHotdrinksBt;
 
 
 	@FXML
