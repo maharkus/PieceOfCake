@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class productsOverviewController {
@@ -25,6 +27,21 @@ public class productsOverviewController {
 
 	@FXML
 	private Button scBt;
+	
+	@FXML
+    private TableView<?> productTable;
+
+    @FXML
+    private TableColumn<?, ?> tbBild;
+
+    @FXML
+    private TableColumn<?, ?> tbName;
+
+    @FXML
+    private TableColumn<?, ?> tbPreis;
+
+    @FXML
+    private TableColumn<?, ?> tbButton;
 
 	@FXML
 	void handleBtGoBack(ActionEvent event) throws IOException {
