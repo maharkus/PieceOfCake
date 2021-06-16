@@ -32,7 +32,7 @@
                <children>
 <Button fx:id="catBreadBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: ffffff;" text="Brot">
                      <graphic>
-                        <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="searchBt" fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../res/category_images/Brot.jpg" />
                            </image>
@@ -42,7 +42,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brötchen" GridPane.columnIndex="3">
+                  <Button fx:id="catBroetchenBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Brötchen" GridPane.columnIndex="3">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button fx:id="catSandwichBt" contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Sandwiches" GridPane.columnIndex="1">
+                  <Button fx:id="catSandwichBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Sandwiches" GridPane.columnIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Kuchen" GridPane.columnIndex="2">
+                  <Button fx:id="catCakeBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Kuchen" GridPane.columnIndex="2">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Dounuts" GridPane.rowIndex="1">
+                  <Button fx:id="catDonutsBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Dounuts" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,7 +90,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Süßwaren" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="catSweetsBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Süßwaren" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Softdrinks" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="catSoftdrinksBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Softdrinks" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -114,7 +114,7 @@
                         <Font name="Courier New Bold" size="40.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Heißgetränke" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button fx:id="catHotdrinksBt" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCatSelection" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: 0;" text="Heißgetränke" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="261.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
                            <image>
