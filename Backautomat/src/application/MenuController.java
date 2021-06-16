@@ -30,9 +30,6 @@ public class MenuController {
 	private Button catBreadBt;
 
 	@FXML
-	private Button catBreadBt;
-
-	@FXML
 	private Button catBroetchenBt;
 
 	@FXML
@@ -86,6 +83,7 @@ public class MenuController {
 	void handleCatSelection(ActionEvent event) throws IOException {
 
 		Main.history.add("Menue.fxml");
+		System.out.println(event.getSource().toString());
 
 		Parent root = FXMLLoader.load(getClass().getResource("productsOverview.fxml"));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
