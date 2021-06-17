@@ -106,10 +106,10 @@ public class productsOverviewController {
         grid.setPadding(new Insets(25, 25, 25, 25));
 
         for(int i = 0; i < pl.size(); i++) {
-            Text sample = new Text(pl.get(i).getProduktname());
-            sample.setWrappingWidth(150);
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/application/products.fxml"));
             grid.add(newLoadedPane, (i+1)%2, (i+1)/2);
+            Text productName = (Text) newLoadedPane.lookup("#productName");
+            productName.setText(pl.get(i).getProduktname());
             };
 
         return grid;

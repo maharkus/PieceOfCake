@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: ffffff; -fx-border-radius: 32; -fx-border-color: black; -fx-border-width: 8;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="500.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" />
-      <Text layoutX="420.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder" textAlignment="CENTER" wrappingWidth="450.0">
+      <Text fx:id="productName" layoutX="420.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder" textAlignment="CENTER" wrappingWidth="450.0">
          <font>
             <Font name="Courier Bold" size="50.0" />
          </font>
