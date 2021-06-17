@@ -10,11 +10,18 @@ import application.classes.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class productsOverviewController {
@@ -29,19 +36,11 @@ public class productsOverviewController {
 	private Button scBt;
 	
 	@FXML
-    private TableView<?> productTable;
+    private GridPane productGrid;
 
-    @FXML
-    private TableColumn<?, ?> tbBild;
-
-    @FXML
-    private TableColumn<?, ?> tbName;
-
-    @FXML
-    private TableColumn<?, ?> tbPreis;
-
-    @FXML
-    private TableColumn<?, ?> tbButton;
+    private int row;
+    
+    ArrayList<Product> pl; 
 
 	@FXML
 	void handleBtGoBack(ActionEvent event) throws IOException {
@@ -71,7 +70,7 @@ public class productsOverviewController {
 	@FXML
 	void getProducts() {
 
-		ArrayList<Product> pl = new ArrayList<Product>();
+		pl = new ArrayList<Product>();
 
 		try {
 
@@ -98,10 +97,28 @@ public class productsOverviewController {
 			e.printStackTrace();
 		}
 	}
+	
+	public GridPane createGrid() throws IOException {
+        GridPane grid = new GridPane();
+        grid.setAlignment(Pos.TOP_LEFT);
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(25, 25, 25, 25));
+
+        for(int i = 0; i < pl.size(); i++) {
+            Text sample = new Text(pl.get(i).getProduktname());
+            sample.setWrappingWidth(150);
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/application/products.fxml"));
+            grid.add(newLoadedPane, (i+1)%2, (i+1)/2);
+            };
+
+        return grid;
+    }
 
 	 @FXML
-	    public void initialize() {
+	    public void initialize() throws IOException {
 		 	getProducts();
+		 	productGrid.add(createGrid(), 0, row);
 	        System.out.println("second");
 	    }
 	
