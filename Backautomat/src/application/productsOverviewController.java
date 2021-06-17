@@ -1,9 +1,12 @@
 package application;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import application.classes.Database;
 import application.classes.Product;
@@ -15,10 +18,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -37,6 +38,9 @@ public class productsOverviewController {
 	
 	@FXML
     private GridPane productGrid;
+	
+	//@FXML
+	//private ImageView productImage;
 
     private int row;
     
@@ -84,6 +88,7 @@ public class productsOverviewController {
 				p.setId(results.getInt("index"));
 				p.setKategorie(results.getString("kategorie"));
 				p.setProduktname(results.getString("produktname"));
+				p.setPreis(results.getDouble("preis"));
 				pl.add(p);
 			}
 
@@ -108,9 +113,29 @@ public class productsOverviewController {
         for(int i = 0; i < pl.size(); i++) {
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/application/products.fxml"));
             grid.add(newLoadedPane, (i+1)%2, (i+1)/2);
+            
+            ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
+            File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
+            Image image = new Image(file.toURI().toString());
+            productImage.setImage(image);
+            
+            
+            
             Text productName = (Text) newLoadedPane.lookup("#productName");
             productName.setText(pl.get(i).getProduktname());
+            
+            
+            
+            Text productPrice = (Text) newLoadedPane.lookup("#productPrice");
+            
+            Locale locale = Locale.GERMANY;
+            NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+            String euroPrice = numberFormat.format(pl.get(i).getPreis());
+            
+            productPrice.setText(euroPrice);
             };
+            
+            
 
         return grid;
     }
