@@ -35,23 +35,23 @@ public class productsOverviewController {
 
 	@FXML
 	private Button scBt;
-	
-	@FXML
-    private GridPane productGrid;
-	
-	//@FXML
-	//private ImageView productImage;
 
-    private int row;
-    
-    ArrayList<Product> pl; 
+	@FXML
+	private GridPane productGrid;
+
+	// @FXML
+	// private ImageView productImage;
+
+	private int row;
+
+	ArrayList<Product> pl;
 
 	@FXML
 	void handleBtGoBack(ActionEvent event) throws IOException {
 
 		String lastScene = Main.history.get(Main.history.size() - 1);
 		System.out.println(Main.history.size());
-    	System.out.println("clicked");
+		System.out.println("clicked");
 
 		Parent root = FXMLLoader.load(getClass().getResource(lastScene));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
@@ -70,7 +70,7 @@ public class productsOverviewController {
 		window.setScene(new Scene(root, 1920, 1080));
 
 	}
-	
+
 	@FXML
 	void getProducts() {
 
@@ -81,10 +81,11 @@ public class productsOverviewController {
 			Database database = new Database();
 
 			database.createConnection();
-			ResultSet results = database.getStatement().executeQuery("SELECT * FROM produkte WHERE Kategorie='" + Main.selectedCat + "'");
+			ResultSet results = database.getStatement()
+					.executeQuery("SELECT * FROM produkte WHERE Kategorie='" + Main.selectedCat + "'");
 
 			while (results.next()) {
-				Product p =new Product();
+				Product p = new Product();
 				p.setId(results.getInt("index"));
 				p.setKategorie(results.getString("kategorie"));
 				p.setProduktname(results.getString("produktname"));
@@ -102,49 +103,58 @@ public class productsOverviewController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public GridPane createGrid() throws IOException {
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.TOP_LEFT);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.TOP_LEFT);
+		grid.setHgap(10);
+		grid.setVgap(10);
+		grid.setPadding(new Insets(25, 25, 25, 25));
 
-        for(int i = 0; i < pl.size(); i++) {
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/application/products.fxml"));
-            grid.add(newLoadedPane, (i+1)%2, (i+1)/2);
-            
-            ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
-            File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
-            Image image = new Image(file.toURI().toString());
-            productImage.setImage(image);
-            
-            
-            
-            Text productName = (Text) newLoadedPane.lookup("#productName");
-            productName.setText(pl.get(i).getProduktname());
-            
-            
-            
-            Text productPrice = (Text) newLoadedPane.lookup("#productPrice");
-            
-            Locale locale = Locale.GERMANY;
-            NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-            String euroPrice = numberFormat.format(pl.get(i).getPreis());
-            
-            productPrice.setText(euroPrice);
-            };
-            
-            
+		for (int i = 0; i < pl.size(); i++) {
+			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/products.fxml"));
+			grid.add(newLoadedPane, (i + 1) % 2, (i + 1) / 2);
 
-        return grid;
-    }
+			// Change Product Image
+			ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
+			File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
+			Image image = new Image(file.toURI().toString());
+			productImage.setImage(image);
 
-	 @FXML
-	    public void initialize() throws IOException {
-		 	getProducts();
-		 	productGrid.add(createGrid(), 0, row);
-	        System.out.println("second");
-	    }
-	
+			// Add To Cart Handler
+			Button BtAddToCart = (Button) newLoadedPane.lookup("#addToSc");
+			int productID = i;
+			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
+			int productAmount = Integer.parseInt(productAmountText.getText());
+			BtAddToCart.setOnAction(
+					event -> addToCart((ActionEvent) event, (int) pl.get(productID).getId(), (int) productAmount));
+
+			// Change Product name
+			Text productName = (Text) newLoadedPane.lookup("#productName");
+			productName.setText(pl.get(i).getProduktname());
+
+			// Change Product Price
+			Text productPrice = (Text) newLoadedPane.lookup("#productPrice");
+			Locale locale = Locale.GERMANY;
+			NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+			String euroPrice = numberFormat.format(pl.get(i).getPreis());
+			productPrice.setText(euroPrice);
+		}
+		;
+
+		return grid;
+	}
+
+	private void addToCart(ActionEvent event, int index, int amount) {
+		System.out.println(index + ", " + amount);
+	}
+
+	@FXML
+	public void initialize() throws IOException {
+
+		getProducts();
+		productGrid.add(createGrid(), 0, row);
+		System.out.println("second");
+	}
+
 }

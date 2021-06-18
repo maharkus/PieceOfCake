@@ -39,7 +39,7 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="200.0" prefWidth="32.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="platzhalter" wrappingWidth="788.9412841796875">
+                  <Text fx:id="categoryText" strokeType="OUTSIDE" strokeWidth="0.0" text="platzhalter" wrappingWidth="788.9412841796875">
                      <font>
                         <Font name="Rampage Brush" size="140.0" />
                      </font>
