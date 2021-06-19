@@ -27,31 +27,29 @@ public class MenuController {
 	private TextField searchTxt;
 
 	@FXML
-	private Button catBreadBt;
+    private Button brot;
 
-	@FXML
-	private Button catSuesgebaeckBt;
+    @FXML
+    private Button broetchen;
 
-	@FXML
-	private Button catBroetchenBt;
+    @FXML
+    private Button sandwiches;
 
-	@FXML
-	private Button catSandwichBt;
+    @FXML
+    private Button kuchen;
 
-	@FXML
-	private Button catCakeBt;
+    @FXML
+    private Button suessgebaeck;
 
-	@FXML
-	private Button catDonutsBt;
+    @FXML
+    private Button suesswaren;
 
-	@FXML
-	private Button catSweetsBt;
+    @FXML
+    private Button softdrinks;
 
-	@FXML
-	private Button catSoftdrinksBt;
+    @FXML
+    private Button heissgetraenke;
 
-	@FXML
-	private Button catHotdrinksBt;
 
 	@FXML
 	void handleBtGoBack(ActionEvent event) throws IOException {
