@@ -13,7 +13,6 @@ import application.classes.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -107,13 +106,12 @@ public class productsOverviewController {
 	public GridPane createGrid() throws IOException {
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.TOP_LEFT);
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(25, 25, 25, 25));
+		grid.setHgap(30);
+		grid.setVgap(30);
 
-		for (int i = 0; i < pl.size(); i++) {
+		for (int i = 0; i<5; i++) {
 			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/products.fxml"));
-			grid.add(newLoadedPane, (i + 1) % 2, (i + 1) / 2);
+			grid.add(newLoadedPane, (i) % 2 , Integer.valueOf((int) Math.floor((i) / 2)));
 
 			// Change Product Image
 			ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
