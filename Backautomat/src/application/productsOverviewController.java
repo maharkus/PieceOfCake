@@ -34,6 +34,9 @@ public class productsOverviewController {
 
 	@FXML
 	private Button scBt;
+	
+	@FXML
+	private Text categoryText;
 
 	@FXML
 	private GridPane productGrid;
@@ -152,6 +155,7 @@ public class productsOverviewController {
 
 		getProducts();
 		productGrid.add(createGrid(), 0, row);
+		categoryText.setText(Main.selectedCat);
 		System.out.println("second");
 	}
 
