@@ -17,10 +17,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -41,8 +43,8 @@ public class productsOverviewController {
 	@FXML
 	private GridPane productGrid;
 
-	// @FXML
-	// private ImageView productImage;
+	@FXML
+	private ScrollPane productWrap;
 
 	private int row;
 
@@ -112,9 +114,9 @@ public class productsOverviewController {
 		grid.setHgap(30);
 		grid.setVgap(30);
 
-		for (int i = 0; i<5; i++) {
+		for (int i = 0; i<pl.size(); i++) {
 			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/products.fxml"));
-			grid.add(newLoadedPane, (i) % 2 , Integer.valueOf((int) Math.floor((i) / 2)));
+			grid.add(newLoadedPane, (i) % 2, Integer.valueOf((int) Math.floor((i) / 2)));
 
 			// Change Product Image
 			ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
@@ -156,7 +158,6 @@ public class productsOverviewController {
 		getProducts();
 		productGrid.add(createGrid(), 0, row);
 		categoryText.setText(Main.selectedCat);
-		System.out.println("second");
 	}
 
 }
