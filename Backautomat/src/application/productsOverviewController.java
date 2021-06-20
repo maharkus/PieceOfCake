@@ -22,7 +22,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -123,6 +122,9 @@ public class productsOverviewController {
 			File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
 			Image image = new Image(file.toURI().toString());
 			productImage.setImage(image);
+			
+			//Amount Buttons
+			 
 
 			// Add To Cart Handler
 			Button BtAddToCart = (Button) newLoadedPane.lookup("#addToSc");
