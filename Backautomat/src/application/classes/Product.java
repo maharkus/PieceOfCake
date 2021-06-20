@@ -7,7 +7,30 @@ public class Product {
 	private int id;
 	private String Produktname;
 	private String Kategorie;
+	private Double Preis;
+	private String Produktbild;
+	private int Stückzahl;
 	
+	
+	
+	public int getBestand() {
+		return Stückzahl;
+	}
+	public void setBestand(int bestand) {
+		Stückzahl = bestand;
+	}
+	public Double getPreis() {
+		return Preis;
+	}
+	public String getProduktbild() {
+		return Produktbild;
+	}
+	public void setPreis(Double preis) {
+		Preis = preis;
+	}
+	public void setProduktbild(String produktbild) {
+		Produktbild = produktbild;
+	}
 	public String getProduktname() {
 		return Produktname;
 	}
@@ -20,30 +43,36 @@ public class Product {
 	public void setKategorie(String kategorie) {
 		Kategorie = kategorie;
 	}
-
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ID: ");
 		sb.append(getId());
-		sb.append("\t Produktname:");
+		sb.append("\t Produktname: ");
 		sb.append(getProduktname());
-		sb.append("\t Kategorie:");
-		sb.append(getKategorie());
+		sb.append("\t Preis: ");
+		sb.append(getPreis());
 		return sb.toString();
 	}
 	
 	public Product() {};
 	
-	public Product(String vorname, String nachname) {
+	public Product(String vorname, String nachname, Double preis, String produktbild, int stückzahl) {
 		this.Produktname = vorname;
 		this.Kategorie = nachname;
+		this.Preis = preis;
+		this.Produktbild = produktbild;
+		this.Stückzahl = stückzahl;
 		
 	}
 }

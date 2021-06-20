@@ -6,6 +6,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -83,6 +84,10 @@ public class MenuController {
 	void handleCatSelection(ActionEvent event) throws IOException {
 
 		Main.history.add("Menue.fxml");
+	    
+	    final Node source = (Node) event.getSource();
+	    Main.selectedCat = source.getId();
+		System.out.println(Main.selectedCat);
 
 		Parent root = FXMLLoader.load(getClass().getResource("productsOverview.fxml"));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
