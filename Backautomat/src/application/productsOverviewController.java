@@ -1,13 +1,13 @@
 package application;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-
 import application.classes.Database;
 import application.classes.Product;
 import javafx.event.ActionEvent;
@@ -18,8 +18,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -35,7 +39,7 @@ public class productsOverviewController {
 
 	@FXML
 	private Button scBt;
-	
+
 	@FXML
 	private Text categoryText;
 
@@ -44,6 +48,9 @@ public class productsOverviewController {
 
 	@FXML
 	private ScrollPane productWrap;
+
+	@FXML
+	private TextField searchBar;
 
 	private int row;
 
@@ -113,7 +120,7 @@ public class productsOverviewController {
 		grid.setHgap(30);
 		grid.setVgap(30);
 
-		for (int i = 0; i<pl.size(); i++) {
+		for (int i = 0; i < pl.size(); i++) {
 			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/products.fxml"));
 			grid.add(newLoadedPane, (i) % 2, Integer.valueOf((int) Math.floor((i) / 2)));
 
@@ -122,9 +129,8 @@ public class productsOverviewController {
 			File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
 			Image image = new Image(file.toURI().toString());
 			productImage.setImage(image);
-			
-			//Amount Buttons
-			 
+
+			// Amount Buttons
 
 			// Add To Cart Handler
 			Button BtAddToCart = (Button) newLoadedPane.lookup("#addToSc");
@@ -160,6 +166,54 @@ public class productsOverviewController {
 		getProducts();
 		productGrid.add(createGrid(), 0, row);
 		categoryText.setText(Main.selectedCat);
+	}
+
+	public void keyPressesSubmitSearch(KeyEvent e) {
+		if (e.getCode().equals(KeyCode.ENTER)) {
+			searchBarBT();
+		}
+	}
+
+	public void searchBarBT() {
+		String eingabe = searchBar.getText();
+		ArrayList<Product> pl = new ArrayList<Product>();
+
+		try {
+
+			Database database = new Database();
+
+			database.createConnection();
+			ResultSet results = database.getStatement().executeQuery("SELECT * FROM produkte");
+
+			while (results.next()) {
+				Product p = new Product();
+				p.setId(results.getInt("index"));
+				p.setKategorie(results.getString("kategorie"));
+				p.setProduktname(results.getString("produktname"));
+				pl.add(p);
+			}
+
+			pl.forEach((item) -> {
+				System.out.println(item.toString());
+			});
+
+			database.getConnection().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		;
+		ArrayList<Product> funde = new ArrayList<Product>();
+
+		String suche = eingabe;
+
+		for (Product item : pl) {
+			if (item.getProduktname().toLowerCase().contains(suche.toLowerCase())) {
+				funde.add(item);
+			}
+		}
+
+		System.out.println(funde.toString());
 	}
 
 }

@@ -9,15 +9,15 @@ public class Product {
 	private String Kategorie;
 	private Double Preis;
 	private String Produktbild;
-	private int Stückzahl;
+	private int Stueckzahl;
 	
 	
 	
 	public int getBestand() {
-		return Stückzahl;
+		return Stueckzahl;
 	}
 	public void setBestand(int bestand) {
-		Stückzahl = bestand;
+		Stueckzahl = bestand;
 	}
 	public Double getPreis() {
 		return Preis;
@@ -67,12 +67,12 @@ public class Product {
 	
 	public Product() {};
 	
-	public Product(String vorname, String nachname, Double preis, String produktbild, int stückzahl) {
+	public Product(String vorname, String nachname, Double preis, String produktbild, int stueckzahl) {
 		this.Produktname = vorname;
 		this.Kategorie = nachname;
 		this.Preis = preis;
 		this.Produktbild = produktbild;
-		this.Stückzahl = stückzahl;
+		this.Stueckzahl = stueckzahl;
 		
 	}
 }

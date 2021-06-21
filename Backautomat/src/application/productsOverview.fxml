@@ -44,7 +44,7 @@
                         <Font name="Rampage Brush" size="140.0" />
                      </font>
                   </Text>
-                  <TextField prefHeight="149.0" prefWidth="300.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="search">
+                  <TextField fx:id="searchBar" onKeyReleased="#keyPressesSubmitSearch" prefHeight="149.0" prefWidth="300.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="search">
                      <font>
                         <Font name="Courier" size="32.0" />
                      </font>
