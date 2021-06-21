@@ -4,10 +4,10 @@ package application.classes;
 public class Product {
 	
 	
-	private int id;
-	private String Produktname;
-	private String Kategorie;
-	private Double Preis;
+	protected int id;
+	protected String Produktname;
+	protected String Kategorie;
+	protected Double Preis;
 	private String Produktbild;
 	private int Stueckzahl;
 	
@@ -67,9 +67,9 @@ public class Product {
 	
 	public Product() {};
 	
-	public Product(String vorname, String nachname, Double preis, String produktbild, int stueckzahl) {
-		this.Produktname = vorname;
-		this.Kategorie = nachname;
+	public Product(String productname, String category, Double preis, String produktbild, int stueckzahl) {
+		this.Produktname = productname;
+		this.Kategorie = category;
 		this.Preis = preis;
 		this.Produktbild = produktbild;
 		this.Stueckzahl = stueckzahl;

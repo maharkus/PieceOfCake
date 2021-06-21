@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import application.classes.Database;
 import application.classes.Product;
+import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -129,16 +129,21 @@ public class productsOverviewController {
 			File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
 			Image image = new Image(file.toURI().toString());
 			productImage.setImage(image);
-
-			// Amount Buttons
+			
+			//Amount
+			Button BtAdd = (Button) newLoadedPane.lookup("#addBt");
+			Button BtSubtract = (Button) newLoadedPane.lookup("#substractBt");
+			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
+			BtAdd.setOnAction(
+					event -> increaseAmount((ActionEvent) event, (Text) productAmountText));
+			BtSubtract.setOnAction(
+					event -> decreaseAmount((ActionEvent) event, (Text) productAmountText));
 
 			// Add To Cart Handler
 			Button BtAddToCart = (Button) newLoadedPane.lookup("#addToSc");
 			int productID = i;
-			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
-			int productAmount = Integer.parseInt(productAmountText.getText());
 			BtAddToCart.setOnAction(
-					event -> addToCart((ActionEvent) event, (int) pl.get(productID).getId(), (int) productAmount));
+					event -> addToCart((ActionEvent) event, (Product) pl.get(productID), (Text) productAmountText));
 
 			// Change Product name
 			Text productName = (Text) newLoadedPane.lookup("#productName");
@@ -155,9 +160,28 @@ public class productsOverviewController {
 
 		return grid;
 	}
+	
+	private void increaseAmount(ActionEvent event, Text productAmountText) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		if(amount < 9 ) {
+			amount++;
+		}
+		productAmountText.setText(Integer.toString(amount).toString());
+	}
+	
+	private void decreaseAmount(ActionEvent event, Text productAmountText) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		if(amount > 1 ) {
+			amount--;
+		}
+		productAmountText.setText(Integer.toString(amount).toString());
+	}
 
-	private void addToCart(ActionEvent event, int index, int amount) {
-		System.out.println(index + ", " + amount);
+
+	private void addToCart(ActionEvent event, Product product, Text productAmountText) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
+		Main.shoppingCart.add(addedProduct);
 	}
 
 	@FXML
