@@ -14,6 +14,7 @@ public class ShoppingCartProduct extends Product {
 	}
 
 	public ShoppingCartProduct(Product product, int amount) {
+		this.id = product.getId();
 		this.Produktname = product.getProduktname();
 		this.Kategorie = product.getKategorie();
 		this.Preis = product.getPreis();
