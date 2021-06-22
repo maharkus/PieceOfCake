@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.productsSearchController">
+   <children>
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Pane layoutX="1244.0" layoutY="71.0" prefHeight="149.0" prefWidth="200.0" style="-fx-background-color: ff8800;" />
+            <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1880.0" style="-fx-background-color: transparent;">
+               <items>
+                  <Button fx:id="goBackBt" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#handleBtGoBack" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
+                     <font>
+                        <Font name="Apple Symbols" size="30.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/gui_images/backArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Pane prefHeight="200.0" prefWidth="32.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suche" wrappingWidth="788.9412841796875">
+                     <font>
+                        <Font name="Rampage Brush" size="140.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="searchBar" onKeyReleased="#keyPressesSubmitSearch" prefHeight="149.0" prefWidth="300.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="search">
+                     <font>
+                        <Font name="Courier" size="32.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </TextField>
+                  <Button fx:id="searchBt" mnemonicParsing="false" prefHeight="148.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;">
+                     <font>
+                        <Font name="Courier New" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/gui_images/lupe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Pane prefHeight="200.0" prefWidth="32.0" />
+                  <Button fx:id="scBt" mnemonicParsing="false" onAction="#handleBtSc" prefHeight="150.0" prefWidth="360.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text=" 00,00€">
+                     <font>
+                        <Font name="Courier New Bold" size="45.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/gui_images/warenkorb.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </items>
+            </ToolBar>
+            <ScrollPane fx:id="productWrap" fitToWidth="true" hbarPolicy="NEVER" layoutX="30.0" layoutY="280.0" pannable="true" prefHeight="740.0" prefWidth="1860.0" style="-fx-background-color: ffffff;" vbarPolicy="ALWAYS">
+               <content>
+                  <GridPane fx:id="productGrid" alignment="TOP_CENTER" hgap="30.0" maxHeight="1200" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: ffffff;" vgap="30.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0" prefWidth="905" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0" prefWidth="905" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints fx:id="row1" percentHeight="100.0" prefHeight="500" vgrow="NEVER" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
