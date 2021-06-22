@@ -178,7 +178,7 @@
 						</Button>
 					</items>
 				</ToolBar>
-				<GridPane layoutX="54.0" layoutY="343.0" prefHeight="660.0" prefWidth="400.0" style="-fx-background-color: ffffff;">
+				<GridPane layoutX="55.0" layoutY="345.0" prefHeight="660.0" prefWidth="400.0" style="-fx-background-color: ffffff;">
 					<columnConstraints>
 						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 					</columnConstraints>
@@ -202,12 +202,17 @@
 						<ImageView fitHeight="325.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
 						<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü" GridPane.rowIndex="1">
 							<font>
-								<Font size="32.0" />
+								<Font name="Courier New Bold" size="32.0" />
 							</font>
 							<GridPane.margin>
 								<Insets bottom="300.0" />
 							</GridPane.margin>
 						</Text>
+                  <ImageView fitHeight="302.0" fitWidth="402.0">
+                     <image>
+                        <Image url="@../../res/product_images/41.png" />
+                     </image>
+                  </ImageView>
 					</children>
 				</GridPane>
 			</children>

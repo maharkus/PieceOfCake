@@ -20,17 +20,22 @@
             <AnchorPane layoutX="40.0" layoutY="40.0" opacity="0.8" prefHeight="1000.0" prefWidth="800.0" style="-fx-background-color: black; -fx-background-radius: 32;" />
             <AnchorPane layoutX="36.0" layoutY="40.0" prefHeight="1004.0" prefWidth="804.0" style="-fx-border-color: ffffff; -fx-border-radius: 32; -fx-border-width: 8;">
                <children>
-                  <Text fill="WHITE" layoutX="71.0" layoutY="663.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
+                  <Text fill="WHITE" layoutX="240.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
                      <font>
                         <Font name="Courier" size="50.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="67.0" layoutY="746.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lorem ipsum lorem ipsum">
+                  <ImageView fx:id="Startseitenprodukt" fitHeight="500.0" fitWidth="400.0" layoutX="199.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="474.0" fitWidth="567.0" layoutX="99.0" layoutY="120.0">
+                     <image>
+                        <Image url="@../../res/product_images/41.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="addToSc1" layoutX="162.0" layoutY="757.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="420.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="zum Warenkorb">
                      <font>
-                        <Font name="Courier" size="32.0" />
+                        <Font name="Courier Bold" size="36.0" />
                      </font>
-                  </Text>
-                  <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="199.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+                  </Button>
                </children></AnchorPane>
             <Text fill="WHITE" layoutX="1038.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cake" textAlignment="CENTER" wrappingWidth="699.484619140625">
                <font>
