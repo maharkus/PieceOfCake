@@ -92,7 +92,7 @@ public class productsOverviewController {
 
 			database.createConnection();
 			ResultSet results = database.getStatement()
-					.executeQuery("SELECT * FROM produkte WHERE id='" + Main.selectedCat + "'");
+					.executeQuery("SELECT * FROM produkte WHERE Kategorie='" + Main.selectedCat + "'");
 
 			while (results.next()) {
 				Product p = new Product();
@@ -100,7 +100,7 @@ public class productsOverviewController {
 				p.setKategorie(results.getString("kategorie"));
 				p.setProduktname(results.getString("produktname"));
 				p.setPreis(results.getDouble("preis"));
-				p.setBestand(results.getInt("stückzahl"));
+				p.setBestand(results.getInt("stueckzahl"));
 				pl.add(p);
 			}
 
