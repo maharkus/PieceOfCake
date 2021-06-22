@@ -103,6 +103,7 @@ public class MenuController {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
 			System.out.println("Hallo");
+			Main.history.add("Menu.fxml");
 			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
 			Stage window = (Stage) goBackBt.getScene().getWindow();
 			window.setScene(new Scene(root, 1920, 1080));

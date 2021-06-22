@@ -191,6 +191,7 @@ public class productsSearchController {
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
+			Main.history.add("productsOverview.fxml");
 			System.out.println("Hallo");
 			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
 			Stage window = (Stage) goBackBt.getScene().getWindow();

@@ -210,6 +210,7 @@ public class productsOverviewController {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
 			System.out.println("Hallo");
+			Main.history.add("productsOverview.fxml");
 			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
 			Stage window = (Stage) goBackBt.getScene().getWindow();
 			window.setScene(new Scene(root, 1920, 1080));
