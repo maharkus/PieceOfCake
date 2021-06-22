@@ -11,12 +11,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class MenuController {
 
 	@FXML
 	private Button goBackBt;
+	
+	@FXML
+	private TextField searchBar;
 
 	@FXML
 	private Button searchBt;
@@ -93,6 +98,17 @@ public class MenuController {
 		Stage window = (Stage) goBackBt.getScene().getWindow();
 		window.setScene(new Scene(root, 1920, 1080));
 
+	}
+	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
+		if (e.getCode().equals(KeyCode.ENTER)) {
+			Main.searchTerm = searchBar.getText();
+			System.out.println("Hallo");
+			Main.history.add("Menu.fxml");
+			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
+			Stage window = (Stage) goBackBt.getScene().getWindow();
+			window.setScene(new Scene(root, 1920, 1080));
+
+		}
 	}
 
 }
