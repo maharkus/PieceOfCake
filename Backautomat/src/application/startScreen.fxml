@@ -20,7 +20,7 @@
             <AnchorPane layoutX="40.0" layoutY="40.0" opacity="0.8" prefHeight="1000.0" prefWidth="800.0" style="-fx-background-color: black; -fx-background-radius: 32;" />
             <AnchorPane layoutX="36.0" layoutY="40.0" prefHeight="1004.0" prefWidth="804.0" style="-fx-border-color: ffffff; -fx-border-radius: 32; -fx-border-width: 8;">
                <children>
-                  <Text fill="WHITE" layoutX="240.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
+                  <Text fx:id="productName" fill="WHITE" layoutX="240.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
                      <font>
                         <Font name="Courier" size="50.0" />
                      </font>
