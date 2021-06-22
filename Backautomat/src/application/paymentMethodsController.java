@@ -48,7 +48,6 @@ public class paymentMethodsController {
     public void handleBtGoBack() throws Exception {
     	
     	String lastScene = Main.history.get(Main.history.size()-1);
-    	System.out.println(Main.history.size());
     	
     	Parent root = FXMLLoader.load(getClass().getResource(lastScene));
     	Stage window = (Stage) goBackBt.getScene().getWindow();

@@ -61,9 +61,7 @@ public class productsOverviewController {
 	void handleBtGoBack(ActionEvent event) throws IOException {
 
 		String lastScene = Main.history.get(Main.history.size() - 1);
-		System.out.println(Main.history.size());
-		System.out.println("clicked");
-
+		
 		Parent root = FXMLLoader.load(getClass().getResource(lastScene));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
 		window.setScene(new Scene(root, 1920, 1080));
@@ -139,7 +137,6 @@ public class productsOverviewController {
 			int stock = pl.get(i).getBestand();
 			BtAdd.setOnAction(
 					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock));
-			System.out.println(stock);
 			BtSubtract.setOnAction(
 					event -> decreaseAmount((ActionEvent) event, (Text) productAmountText));
 
@@ -209,7 +206,6 @@ public class productsOverviewController {
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
-			System.out.println("Hallo");
 			Main.history.add("productsOverview.fxml");
 			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
 			Stage window = (Stage) goBackBt.getScene().getWindow();

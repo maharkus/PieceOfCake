@@ -78,7 +78,6 @@ public class shoppingCartController {
 			// Change Product name
 			Text productName = (Text) newLoadedPane.lookup("#productName");
 			productName.setText(Main.shoppingCart.get(i).getProduktname());
-			System.out.println(Main.shoppingCart.get(i).getProduktname());
 
 			// Change Product Price
 			Text productPrice = (Text) newLoadedPane.lookup("#productPrice");

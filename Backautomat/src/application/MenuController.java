@@ -61,7 +61,6 @@ public class MenuController {
 	void handleBtGoBack(ActionEvent event) throws IOException {
 
 		String lastScene = Main.history.get(Main.history.size() - 1);
-		System.out.println(Main.history.size());
 
 		Parent root = FXMLLoader.load(getClass().getResource(lastScene));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
@@ -92,7 +91,6 @@ public class MenuController {
 	    
 	    final Node source = (Node) event.getSource();
 	    Main.selectedCat = source.getId();
-		System.out.println(Main.selectedCat);
 
 		Parent root = FXMLLoader.load(getClass().getResource("productsOverview.fxml"));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
@@ -102,8 +100,7 @@ public class MenuController {
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
-			System.out.println("Hallo");
-			Main.history.add("Menu.fxml");
+			Main.history.add("Menue.fxml");
 			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
 			Stage window = (Stage) goBackBt.getScene().getWindow();
 			window.setScene(new Scene(root, 1920, 1080));
