@@ -92,7 +92,7 @@ public class productsOverviewController {
 
 			database.createConnection();
 			ResultSet results = database.getStatement()
-					.executeQuery("SELECT * FROM produkte WHERE Kategorie='" + Main.selectedCat + "'");
+					.executeQuery("SELECT * FROM produkte WHERE id='" + Main.selectedCat + "'");
 
 			while (results.next()) {
 				Product p = new Product();
