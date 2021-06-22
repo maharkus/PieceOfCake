@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import application.classes.Database;
 import application.classes.Product;
+import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -100,6 +101,7 @@ public class productsOverviewController {
 				p.setKategorie(results.getString("kategorie"));
 				p.setProduktname(results.getString("produktname"));
 				p.setPreis(results.getDouble("preis"));
+				p.setBestand(results.getInt("stueckzahl"));
 				pl.add(p);
 			}
 
@@ -129,16 +131,23 @@ public class productsOverviewController {
 			File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
 			Image image = new Image(file.toURI().toString());
 			productImage.setImage(image);
-
-			// Amount Buttons
+			
+			//Amount
+			Button BtAdd = (Button) newLoadedPane.lookup("#addBt");
+			Button BtSubtract = (Button) newLoadedPane.lookup("#substractBt");
+			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
+			int stock = pl.get(i).getBestand();
+			BtAdd.setOnAction(
+					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock));
+			System.out.println(stock);
+			BtSubtract.setOnAction(
+					event -> decreaseAmount((ActionEvent) event, (Text) productAmountText));
 
 			// Add To Cart Handler
 			Button BtAddToCart = (Button) newLoadedPane.lookup("#addToSc");
 			int productID = i;
-			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
-			int productAmount = Integer.parseInt(productAmountText.getText());
 			BtAddToCart.setOnAction(
-					event -> addToCart((ActionEvent) event, (int) pl.get(productID).getId(), (int) productAmount));
+					event -> addToCart((ActionEvent) event, (Product) pl.get(productID), (Text) productAmountText, (int) stock));
 
 			// Change Product name
 			Text productName = (Text) newLoadedPane.lookup("#productName");
@@ -155,9 +164,46 @@ public class productsOverviewController {
 
 		return grid;
 	}
+	
+	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		if(amount < bestand ) {
+			amount++;
+		}
+		productAmountText.setText(Integer.toString(amount).toString());
+	}
+	
+	private void decreaseAmount(ActionEvent event, Text productAmountText) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		if(amount > 1 ) {
+			amount--;
+		}
+		productAmountText.setText(Integer.toString(amount).toString());
+	}
 
-	private void addToCart(ActionEvent event, int index, int amount) {
-		System.out.println(index + ", " + amount);
+
+	private void addToCart(ActionEvent event, Product product, Text productAmountText, int bestand) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
+		
+		// Check if product already is in cart
+		if(Main.shoppingCart.stream().anyMatch(o -> o.getId() == addedProduct.getId())) {
+			for(int i=0; i<Main.shoppingCart.size(); i++) {
+				int id = Main.shoppingCart.get(i).getId(); 
+			    if (id == addedProduct.getId()) {
+			    	int cartAmount = Main.shoppingCart.get(i).getAmount()+amount;
+			    	
+			    	//prevent cartAmound being bigger than stock
+			    	if (cartAmount > bestand) {
+			    		cartAmount = bestand;
+			    	}
+			        Main.shoppingCart.get(i).setAmount(cartAmount);
+			    }
+			}
+		}
+		else {
+			Main.shoppingCart.add(addedProduct);
+		}
 	}
 	
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
@@ -172,7 +218,6 @@ public class productsOverviewController {
 	}
 	@FXML
 	public void initialize() throws IOException {
-
 		getProducts();
 		productGrid.add(createGrid(), 0, row);
 		categoryText.setText(Main.selectedCat);

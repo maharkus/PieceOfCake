@@ -28,7 +28,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Button>
-      <Text fx:id="productAmount" layoutX="639.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="productAmount" layoutX="614.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="75.0">
          <font>
             <Font name="Courier Bold" size="48.0" />
          </font>

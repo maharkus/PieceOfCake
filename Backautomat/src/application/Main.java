@@ -1,23 +1,18 @@
 package application;
 
 import javafx.application.Application;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-
-import application.classes.Database;
-import application.classes.Product;
+import application.classes.ShoppingCartProduct;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 
     public static ArrayList<String> history = new ArrayList<String>();
+    public static ArrayList<ShoppingCartProduct> shoppingCart = new ArrayList<ShoppingCartProduct>();
     public static String selectedCat;
     public static String searchTerm;
 

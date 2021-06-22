@@ -1,25 +1,17 @@
 package application;
 
-import java.io.File;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import application.classes.Database;
 import application.classes.Product;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -74,65 +66,30 @@ public class shoppingCartController {
     	Main.history.remove(Main.history.size()-1);
     }
     
-    @FXML
-	void getProducts() {
-
-		pl = new ArrayList<Product>();
-
-		try {
-
-			Database database = new Database();
-
-			database.createConnection();
-			ResultSet results = database.getStatement()
-					.executeQuery("SELECT * FROM produkte WHERE Kategorie='" + Main.selectedCat + "'");
-
-			while (results.next()) {
-				Product p = new Product();
-				p.setId(results.getInt("index"));
-				p.setKategorie(results.getString("kategorie"));
-				p.setProduktname(results.getString("produktname"));
-				p.setPreis(results.getDouble("preis"));
-				pl.add(p);
-			}
-
-			pl.forEach((item) -> {
-				System.out.println(item.toString());
-			});
-
-			database.getConnection().close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-    
     public GridPane createGrid() throws IOException {
 		GridPane grid = new GridPane();
-		grid.setAlignment(Pos.TOP_LEFT);
-		grid.setHgap(30);
-		grid.setVgap(30);
+		grid.setAlignment(Pos.CENTER);
+		grid.setVgap(15);
 
-		for (int i = 0; i<pl.size(); i++) {
+		for (int i = 0; i<Main.shoppingCart.size(); i++) {
 			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/shoppingCartItems.fxml"));
-			grid.add(newLoadedPane, (i) % 2, Integer.valueOf((int) Math.floor((i) / 2)));
-
-			// Change Product Image
-			ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
-			File file = new File("res/product_images/" + pl.get(i).getId() + ".jpg");
-			Image image = new Image(file.toURI().toString());
-			productImage.setImage(image);
+			grid.add(newLoadedPane, 0, i);
 			
 			// Change Product name
 			Text productName = (Text) newLoadedPane.lookup("#productName");
-			productName.setText(pl.get(i).getProduktname());
+			productName.setText(Main.shoppingCart.get(i).getProduktname());
+			System.out.println(Main.shoppingCart.get(i).getProduktname());
 
 			// Change Product Price
 			Text productPrice = (Text) newLoadedPane.lookup("#productPrice");
 			Locale locale = Locale.GERMANY;
 			NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-			String euroPrice = numberFormat.format(pl.get(i).getPreis());
+			String euroPrice = numberFormat.format(Main.shoppingCart.get(i).getPreis());
 			productPrice.setText(euroPrice);
+			
+			Text productAmount = (Text) newLoadedPane.lookup("#productAmount");
+			productAmount.setText(String.valueOf(Main.shoppingCart.get(i).getAmount()));
+			
 		}
 		;
 
@@ -140,8 +97,6 @@ public class shoppingCartController {
 	}
     
     public void initialize() throws IOException {
-
-		getProducts();
 		shoppingCartGrid.add(createGrid(), 0, row);
 	}
 }
