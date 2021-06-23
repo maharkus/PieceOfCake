@@ -3,6 +3,8 @@ package application;
 
 import java.io.IOException;
 
+import application.classes.Product;
+import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +15,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MenuController {
 
 	@FXML
 	private Button goBackBt;
+	
+	@FXML
+	private Button addToSc;
 	
 	@FXML
 	private TextField searchBar;
@@ -83,7 +90,8 @@ public class MenuController {
 	void handleBtSearch(ActionEvent event) {
 
 	}
-
+	
+	
 	@FXML
 	void handleCatSelection(ActionEvent event) throws IOException {
 

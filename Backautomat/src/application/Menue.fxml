@@ -200,7 +200,7 @@
 						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 					</rowConstraints>
 					<children>
-						<Button mnemonicParsing="false" prefHeight="80.0" prefWidth="350.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" GridPane.rowIndex="1">
+						<Button fx:id="addToSc" mnemonicParsing="false" prefHeight="80.0" prefWidth="350.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" GridPane.rowIndex="1">
 							<graphic>
 								<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
 									<image>

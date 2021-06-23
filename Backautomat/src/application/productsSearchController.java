@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import application.classes.Database;
 import application.classes.Product;
+import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,9 +77,9 @@ public class productsSearchController {
 	}
 
 
-	private void addToCart(ActionEvent event, int index, int amount) {
+/*	private void addToCart(ActionEvent event, int index, int amount) {
 		System.out.println(index + ", " + amount);
-	}
+	}*/
 
 
 
@@ -98,6 +99,7 @@ public class productsSearchController {
 				p.setKategorie(results.getString("kategorie"));
 				p.setProduktname(results.getString("produktname"));
 				p.setPreis(results.getDouble("preis"));
+				p.setBestand(results.getInt("stueckzahl"));
 				pl.add(p);
 			}
 
@@ -161,14 +163,20 @@ public class productsSearchController {
 			productImage.setImage(image);
 
 			// Amount Buttons
+			Button BtAdd = (Button) newLoadedPane.lookup("#addBt");
+			Button BtSubtract = (Button) newLoadedPane.lookup("#substractBt");
+			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
+			int stock = sorted.get(i).getBestand();
+			BtAdd.setOnAction(
+					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock));
+			BtSubtract.setOnAction(
+					event -> decreaseAmount((ActionEvent) event, (Text) productAmountText));
 
 			// Add To Cart Handler
 			Button BtAddToCart = (Button) newLoadedPane.lookup("#addToSc");
 			int productID = i;
-			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
-			int productAmount = Integer.parseInt(productAmountText.getText());
 			BtAddToCart.setOnAction(
-					event -> addToCart((ActionEvent) event, (int) sorted.get(productID).getId(), (int) productAmount));
+					event -> addToCart((ActionEvent) event, (Product) sorted.get(productID), (Text) productAmountText, (int) stock));
 
 			// Change Product name
 			Text productName = (Text) newLoadedPane.lookup("#productName");
@@ -184,6 +192,47 @@ public class productsSearchController {
 		;
 
 		return grid;
+	}
+	
+	private void addToCart(ActionEvent event, Product product, Text productAmountText, int bestand) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
+		
+		// Check if product already is in cart
+		if(Main.shoppingCart.stream().anyMatch(o -> o.getId() == addedProduct.getId())) {
+			for(int i=0; i<Main.shoppingCart.size(); i++) {
+				int id = Main.shoppingCart.get(i).getId(); 
+			    if (id == addedProduct.getId()) {
+			    	int cartAmount = Main.shoppingCart.get(i).getAmount()+amount;
+			    	
+			    	//prevent cartAmound being bigger than stock
+			    	if (cartAmount > bestand) {
+			    		cartAmount = bestand;
+			    	}
+			        Main.shoppingCart.get(i).setAmount(cartAmount);
+			    }
+			}
+		}
+		else {
+			Main.shoppingCart.add(addedProduct);
+		}
+	}
+	
+	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		System.out.println(amount);
+		if(amount < bestand ) {
+			amount++;
+		}
+		productAmountText.setText(Integer.toString(amount).toString());
+	}
+	
+	private void decreaseAmount(ActionEvent event, Text productAmountText) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		if(amount > 1 ) {
+			amount--;
+		}
+		productAmountText.setText(Integer.toString(amount).toString());
 	}
 	
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
