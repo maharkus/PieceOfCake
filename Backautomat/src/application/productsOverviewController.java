@@ -201,6 +201,21 @@ public class productsOverviewController {
 		else {
 			Main.shoppingCart.add(addedProduct);
 		}
+		
+		setTotal(scBt);
+	}
+	
+	public void setTotal(Button b) {
+		Double total = 0.00;
+		for(ShoppingCartProduct p : Main.shoppingCart) {
+			total += p.getAmount()*p.getPreis();
+		}
+
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String euroPrice = numberFormat.format(total);
+		b.setText(euroPrice);
+		
 	}
 	
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
@@ -218,6 +233,7 @@ public class productsOverviewController {
 		getProducts();
 		productGrid.add(createGrid(), 0, row);
 		categoryText.setText(Main.selectedCat);
+		setTotal(scBt);
 	}
 
 }
