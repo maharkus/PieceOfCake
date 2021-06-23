@@ -17,25 +17,24 @@ import javafx.stage.Stage;
 
 public class outputController {
 
+	@FXML
+	private ImageView product1;
 
 	@FXML
-    private ImageView product1;
+	private ImageView product2;
 
 	@FXML
-    private ImageView product2;
+	private ImageView product3;
 
 	@FXML
-    private ImageView product3;
-    
-    @FXML
 	private AnchorPane backToMenu;
-	
+
 	@FXML
 	public void handleBtBackToMenu(MouseEvent event) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("paymentMethods.fxml"));
-    	
-    	Stage window = (Stage) backToMenu.getScene().getWindow();
-    	window.setScene(new Scene(root, 1920, 1080));
+
+		Stage window = (Stage) backToMenu.getScene().getWindow();
+		window.setScene(new Scene(root, 1920, 1080));
 	}
 
 	public void initialize() throws IOException {
@@ -44,8 +43,13 @@ public class outputController {
 		productImages.add(product1);
 		productImages.add(product2);
 		productImages.add(product3);
-		
-		for(int i = 0; i<productImages.size(); i++ ) {
+
+		int productDisplay = Main.shoppingCart.size();
+		if (productDisplay > 3) {
+			productDisplay = 3;
+		}
+
+		for (int i = 0; i < productDisplay; i++) {
 
 			File file = new File("res/product_images/" + shoppingCart.get(i).getId() + ".jpg");
 			Image image = new Image(file.toURI().toString());
@@ -53,4 +57,3 @@ public class outputController {
 		}
 	}
 }
-

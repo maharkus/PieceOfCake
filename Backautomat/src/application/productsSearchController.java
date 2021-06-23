@@ -56,8 +56,6 @@ public class productsSearchController {
 	void handleBtGoBack(ActionEvent event) throws IOException {
 
 		String lastScene = Main.history.get(Main.history.size() - 1);
-		System.out.println(Main.history.size());
-		System.out.println("clicked");
 
 		Parent root = FXMLLoader.load(getClass().getResource(lastScene));
 		Stage window = (Stage) goBackBt.getScene().getWindow();
@@ -192,7 +190,6 @@ public class productsSearchController {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
 			Main.history.add("productsOverview.fxml");
-			System.out.println("Hallo");
 			Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
 			Stage window = (Stage) goBackBt.getScene().getWindow();
 			window.setScene(new Scene(root, 1920, 1080));
