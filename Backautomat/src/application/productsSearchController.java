@@ -209,6 +209,8 @@ public class productsSearchController {
 		else {
 			Main.shoppingCart.add(addedProduct);
 		}
+		
+		setTotal(scBt);
 	}
 	
 	public void setTotal(Button b) {
