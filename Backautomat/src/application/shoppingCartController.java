@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import application.classes.Product;
+import application.classes.ShoppingCartProduct;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -41,6 +44,10 @@ public class shoppingCartController {
     @FXML
 	private GridPane shoppingCartGrid;
 
+    @FXML
+	private ScrollPane productWrap;
+    
+
 	private int row;
     
     ArrayList<Product> pl;
@@ -67,13 +74,19 @@ public class shoppingCartController {
     }
     
     public GridPane createGrid() throws IOException {
+    	
+    	productWrap.setContent(null);
+    	
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
-		grid.setVgap(15);
+		grid.setVgap(17);
+		
+		productWrap.setContent(grid);
 
 		for (int i = 0; i<Main.shoppingCart.size(); i++) {
 			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/shoppingCartItems.fxml"));
 			grid.add(newLoadedPane, 0, i);
+			int index = i;
 			
 			// Change Product name
 			Text productName = (Text) newLoadedPane.lookup("#productName");
@@ -89,11 +102,51 @@ public class shoppingCartController {
 			Text productAmount = (Text) newLoadedPane.lookup("#productAmount");
 			productAmount.setText(String.valueOf(Main.shoppingCart.get(i).getAmount()));
 			
+			//Amount
+			Button BtAdd = (Button) newLoadedPane.lookup("#addBt");
+			Button BtSubtract = (Button) newLoadedPane.lookup("#substractBt");
+			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
+			int stock = Main.shoppingCart.get(i).getBestand();
+			BtAdd.setOnAction(
+					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock, (int) index));
+			BtSubtract.setOnAction(
+					event -> {
+						try {
+							decreaseAmount((ActionEvent) event, (Text) productAmountText, (int) index);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					});
+			
 		}
 		;
 
 		return grid;
 	}
+	
+	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand, int index) {
+		int amount = Integer.parseInt(productAmountText.getText());
+		if(amount < bestand ) {
+			amount = amount+1;
+			Main.shoppingCart.get(index).setAmount(amount);
+		}
+		productAmountText.setText(String.valueOf(amount));
+	}
+	
+	private void decreaseAmount(ActionEvent event, Text productAmountText, int index) throws IOException {
+		int amount = Main.shoppingCart.get(index).getAmount();
+		if(amount > 1 ) {
+			amount--;
+			Main.shoppingCart.get(index).setAmount(amount);
+		}
+		else {
+			Main.shoppingCart.remove(index);
+			createGrid();
+		}
+		productAmountText.setText(String.valueOf(amount));
+	}
+
     
     public void initialize() throws IOException {
 		shoppingCartGrid.add(createGrid(), 0, row);

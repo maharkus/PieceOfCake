@@ -19,7 +19,7 @@
 <children>
 		<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;">
 			<children>
-            <Pane layoutX="1244.0" layoutY="87.0" prefHeight="149.0" prefWidth="200.0" style="-fx-background-color: ff8800;" />
+            <Pane layoutX="1244.0" layoutY="71.0" prefHeight="149.0" prefWidth="200.0" style="-fx-background-color: ff8800;" />
             <ToolBar accessibleRole="TEXT" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="1880.0" style="-fx-background-color: transparent;">
                <items>
                   <Button fx:id="goBackBt" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#handleBtGoBack" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-padding: 0; -fx-background-radius: 32;" textAlignment="CENTER">
