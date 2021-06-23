@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import application.classes.Database;
 import application.classes.Product;
@@ -12,14 +11,11 @@ import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -67,7 +63,6 @@ public class startScreenController {
         Angebotsbild.setImage(image);
 
         int stock = Startseitenprodukt.getBestand();
-        int productID = Startseitenprodukt.getId();
         addToSc1.setOnAction(
                 event -> addToCart((ActionEvent) event, (Product) Startseitenprodukt, (int) stock));
 

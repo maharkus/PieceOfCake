@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import application.classes.Product;
-import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

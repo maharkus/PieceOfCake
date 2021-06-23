@@ -76,13 +76,6 @@ public class productsSearchController {
 
 	}
 
-
-	private void addToCart(ActionEvent event, int index, int amount) {
-		System.out.println(index + ", " + amount);
-		setTotal(scBt);
-	}
-
-
 	public void searchBarBT(String eingabe) {
 		ArrayList<Product> pl = new ArrayList<Product>();
 
