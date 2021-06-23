@@ -33,7 +33,7 @@
       </Text>
       <Text fx:id="productPrice" layoutX="1535.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00€" textAlignment="CENTER" wrappingWidth="288.461181640625">
          <font>
-            <Font name="CourierStd-Bold" size="50.0" />
+            <Font name="Courier New Bold" size="50.0" />
          </font>
       </Text>
    </children>
