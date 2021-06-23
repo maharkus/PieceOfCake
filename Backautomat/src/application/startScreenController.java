@@ -61,6 +61,7 @@ public class startScreenController {
 		
 		angebotstext.setText(Startseitenprodukt.getAngebottext());
 		
+		//change image
         File file = new File("res/product_images/" + Startseitenprodukt.getId() + ".png");
         Image image = new Image(file.toURI().toString());
         Angebotsbild.setImage(image);
@@ -75,7 +76,7 @@ public class startScreenController {
 		
 
 		}
-		
+		//add to cart
 	private void addToCart(ActionEvent event, Product product, int bestand) {
 		int amount = 1;
 		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
