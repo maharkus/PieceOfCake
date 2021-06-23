@@ -10,9 +10,17 @@ public class Product {
 	protected Double Preis;
 	private String Produktbild;
 	protected int Bestand;
+	private String Angebottext;
 	
 	
 	
+	
+	public String getAngebottext() {
+		return Angebottext;
+	}
+	public void setAngebottext(String angebottext) {
+		Angebottext = angebottext;
+	}
 	public int getBestand() {
 		return Bestand;
 	}
@@ -76,4 +84,15 @@ public class Product {
 		this.Bestand = bestand;
 		
 	}
+
+public Product(int id, String productname, String category, Double preis, String produktbild, int bestand, String angebottext) {
+	this.id = id;
+	this.Produktname = productname;
+	this.Kategorie = category;
+	this.Preis = preis;
+	this.Produktbild = produktbild;
+	this.Bestand = bestand;
+	this.Angebottext= angebottext;
+	
+}
 }
