@@ -38,14 +38,14 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="200.0" prefWidth="32.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="788.9412841796875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menü" wrappingWidth="788.9412841796875">
                      <font>
                         <Font name="Rampage Brush" size="140.0" />
                      </font>
                   </Text>
                   <TextField fx:id="searchBar" onKeyReleased="#keyPressesSubmitSearch" prefHeight="149.0" prefWidth="300.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;">
                      <font>
-                        <Font name="Courier" size="32.0" />
+                        <Font name="Courier New Bold" size="32.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />

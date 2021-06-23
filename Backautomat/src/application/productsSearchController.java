@@ -77,10 +77,10 @@ public class productsSearchController {
 	}
 
 
-/*	private void addToCart(ActionEvent event, int index, int amount) {
+	private void addToCart(ActionEvent event, int index, int amount) {
 		System.out.println(index + ", " + amount);
-	}*/
-
+		setTotal(scBt);
+	}
 
 
 	public void searchBarBT(String eingabe) {
@@ -218,6 +218,19 @@ public class productsSearchController {
 		}
 	}
 	
+	public void setTotal(Button b) {
+		Double total = 0.00;
+		for(ShoppingCartProduct p : Main.shoppingCart) {
+			total += p.getAmount()*p.getPreis();
+		}
+
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String euroPrice = numberFormat.format(total);
+		b.setText(euroPrice);
+		
+	}
+	
 	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand) {
 		int amount = Integer.parseInt(productAmountText.getText());
 		System.out.println(amount);
@@ -249,5 +262,6 @@ public class productsSearchController {
 	public void initialize() throws IOException {
 		searchBarBT(Main.searchTerm);
 		productGrid.add(createGridSearch(sortieralgorithmus(funde)), 0, row);
+		setTotal(scBt);
 	}
 }

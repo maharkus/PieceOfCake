@@ -2,8 +2,8 @@
 package application;
 
 import java.io.IOException;
-
-import application.classes.Product;
+import java.text.NumberFormat;
+import java.util.Locale;
 import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -105,6 +105,20 @@ public class MenuController {
 		window.setScene(new Scene(root, 1920, 1080));
 
 	}
+	
+	public void setTotal(Button b) {
+		Double total = 0.00;
+		for(ShoppingCartProduct p : Main.shoppingCart) {
+			total += p.getAmount()*p.getPreis();
+		}
+
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String euroPrice = numberFormat.format(total);
+		b.setText(euroPrice);
+		
+	}
+	
 	public void keyPressesSubmitSearch(KeyEvent e) throws IOException {
 		if (e.getCode().equals(KeyCode.ENTER)) {
 			Main.searchTerm = searchBar.getText();
@@ -115,5 +129,10 @@ public class MenuController {
 
 		}
 	}
+	@FXML
+	public void initialize() throws IOException {
+		setTotal(scBt);
+	}
+
 
 }

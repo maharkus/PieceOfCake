@@ -2,8 +2,13 @@ package application;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
+import application.classes.Database;
+import application.classes.Product;
 import application.classes.ShoppingCartProduct;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,22 +32,20 @@ public class outputController {
 	private ImageView product3;
 
 	@FXML
-	private AnchorPane backToMenu;
+	private ImageView backToStart;
 
 	@FXML
-	public void handleBtBackToMenu(MouseEvent event) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("paymentMethods.fxml"));
+	public void backToStart(MouseEvent event) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("startScreen.fxml"));
 
-		Stage window = (Stage) backToMenu.getScene().getWindow();
+		Stage window = (Stage) backToStart.getScene().getWindow();
 		window.setScene(new Scene(root, 1920, 1080));
 	}
 
-	public void initialize() throws IOException {
+	public void initialize() throws IOException, SQLException {
+		
 		ArrayList<ShoppingCartProduct> shoppingCart = Main.shoppingCart;
-		ArrayList<ImageView> productImages = new ArrayList<ImageView>();
-		productImages.add(product1);
-		productImages.add(product2);
-		productImages.add(product3);
+		ImageView[] productImages = {product1, product2, product3};
 
 		int productDisplay = Main.shoppingCart.size();
 		if (productDisplay > 3) {
@@ -53,7 +56,24 @@ public class outputController {
 
 			File file = new File("res/product_images/" + shoppingCart.get(i).getId() + ".jpg");
 			Image image = new Image(file.toURI().toString());
-			productImages.get(i).setImage(image);
+			productImages[i].setImage(image);
 		}
+
+		Database database = new Database();
+
+		database.createConnection();
+		String SQLQuery = "";
+		Statement statement = database.getConnection().createStatement();
+		for (ShoppingCartProduct p : shoppingCart) {
+			SQLQuery = "UPDATE produkte SET Stueckzahl =" + (p.getBestand() - p.getAmount()) + " WHERE `Index` =" + p.getId() + ";";
+			statement.addBatch(SQLQuery);
+		}
+		statement.executeBatch();
+		database.getConnection().close();
+		
+		shoppingCart.clear();
+		Main.history.clear();
+
 	}
+
 }

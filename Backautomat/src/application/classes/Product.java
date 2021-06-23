@@ -9,7 +9,7 @@ public class Product {
 	protected String Kategorie;
 	protected Double Preis;
 	private String Produktbild;
-	private int Bestand;
+	protected int Bestand;
 	private String Angebottext;
 	
 	
