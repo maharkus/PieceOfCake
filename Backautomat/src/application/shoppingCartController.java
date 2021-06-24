@@ -107,11 +107,11 @@ public class shoppingCartController {
 			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
 			int stock = Main.shoppingCart.get(i).getBestand();
 			BtAdd.setOnAction(
-					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock, (int) index));
+					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock, (int) index, (Text) productPrice));
 			BtSubtract.setOnAction(
 					event -> {
 						try {
-							decreaseAmount((ActionEvent) event, (Text) productAmountText, (int) index);
+							decreaseAmount((ActionEvent) event, (Text) productAmountText, (int) index, (Text) productPrice);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -124,16 +124,20 @@ public class shoppingCartController {
 		return grid;
 	}
 	
-	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand, int index) {
+	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand, int index, Text priceText) {
 		int amount = Integer.parseInt(productAmountText.getText());
 		if(amount < bestand ) {
 			amount = amount+1;
 			Main.shoppingCart.get(index).setAmount(amount);
 		}
 		productAmountText.setText(String.valueOf(amount));
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
+		priceText.setText(euroPrice);
 	}
 	
-	private void decreaseAmount(ActionEvent event, Text productAmountText, int index) throws IOException {
+	private void decreaseAmount(ActionEvent event, Text productAmountText, int index, Text priceText) throws IOException {
 		int amount = Main.shoppingCart.get(index).getAmount();
 		if(amount > 1 ) {
 			amount--;
@@ -144,6 +148,10 @@ public class shoppingCartController {
 			createGrid();
 		}
 		productAmountText.setText(String.valueOf(amount));
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
+		priceText.setText(euroPrice);
 	}
 
 	public void clearOrder() throws IOException {
