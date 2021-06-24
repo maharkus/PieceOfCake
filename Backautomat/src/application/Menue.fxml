@@ -199,7 +199,7 @@
 								<Font name="Courier New Bold" size="32.0" />
 							</font>
 						</Text>
-                  <Text fx:id="angebotstext" layoutX="64.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Angebotstext" wrappingWidth="288.046875">
+                  <Text fx:id="angebotstext" layoutX="38.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Angebotstext" wrappingWidth="332.046875">
                      <font>
                         <Font name="Courier New" size="30.0" />
                      </font>
