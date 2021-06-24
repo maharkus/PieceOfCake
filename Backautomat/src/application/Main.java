@@ -2,6 +2,8 @@ package application;
 
 import javafx.application.Application;
 import java.util.ArrayList;
+
+import application.classes.Product;
 import application.classes.ShoppingCartProduct;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -15,6 +17,7 @@ public class Main extends Application {
     public static ArrayList<ShoppingCartProduct> shoppingCart = new ArrayList<ShoppingCartProduct>();
     public static String selectedCat;
     public static String searchTerm;
+    public static Product menuProduct = new Product();
 
 	@Override
 	public void start(Stage primaryStage) {

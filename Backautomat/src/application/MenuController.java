@@ -1,9 +1,15 @@
 
 package application;
 
+import java.io.File;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.Locale;
+
+import application.classes.Database;
+import application.classes.Product;
 import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +19,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -20,6 +28,18 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MenuController {
+
+	@FXML
+	private Text productName;
+	
+    @FXML
+    private Text angebotstext;
+    
+    @FXML
+    private ImageView Angebotsbild;
+    
+    @FXML
+    private Button addToSc1;
 
 	@FXML
 	private Button goBackBt;
@@ -129,9 +149,50 @@ public class MenuController {
 
 		}
 	}
+	
+
+		
 	@FXML
 	public void initialize() throws IOException {
 		setTotal(scBt);
+		Product Startseitenprodukt = Main.menuProduct;
+		productName.setText(Main.menuProduct.getProduktname());
+		
+		angebotstext.setText(Startseitenprodukt.getAngebottext());
+		
+		//change image
+        File file = new File("res/product_images/" + Startseitenprodukt.getId() + ".png");
+        Image image = new Image(file.toURI().toString());
+        Angebotsbild.setImage(image);
+
+        int stock = Startseitenprodukt.getBestand();
+        addToSc.setOnAction(
+                event -> addToCart((ActionEvent) event, (Product) Startseitenprodukt, (int) stock));
+	}
+	
+	//add to cart
+	private void addToCart(ActionEvent event, Product product, int bestand) {
+		int amount = 1;
+		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
+		
+		// Check if product already is in cart
+		if(Main.shoppingCart.stream().anyMatch(o -> o.getId() == addedProduct.getId())) {
+			for(int i=0; i<Main.shoppingCart.size(); i++) {
+				int id = Main.shoppingCart.get(i).getId(); 
+			    if (id == addedProduct.getId()) {
+			    	int cartAmount = Main.shoppingCart.get(i).getAmount()+amount;
+			    	
+			    	//prevent cartAmound being bigger than stock
+			    	if (cartAmount > bestand) {
+			    		cartAmount = bestand;
+			    	}
+			        Main.shoppingCart.get(i).setAmount(cartAmount);
+			    }
+			}
+		}
+		else {
+			Main.shoppingCart.add(addedProduct);
+		}
 	}
 
 

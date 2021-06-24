@@ -46,8 +46,8 @@ public class startScreenController {
 		Database database = new Database();
 		database.createConnection();
 		ResultSet results = database.getStatement()
-				.executeQuery("SELECT * FROM produkte where produktname= 'Tagesmenü'");
-		Product Startseitenprodukt = new Product();
+				.executeQuery("SELECT * FROM produkte WHERE `Index`='" + 41 + "'");
+		Product Startseitenprodukt = Main.menuProduct;
 
 		while (results.next()) {
 			Startseitenprodukt.setId(results.getInt("index"));
@@ -66,40 +66,11 @@ public class startScreenController {
         Image image = new Image(file.toURI().toString());
         Angebotsbild.setImage(image);
 
-        int stock = Startseitenprodukt.getBestand();
-        int productID = Startseitenprodukt.getId();
-        addToSc1.setOnAction(
-                event -> addToCart((ActionEvent) event, (Product) Startseitenprodukt, (int) stock));
-
 
 		database.getConnection().close();
 		
 
 		}
-		//add to cart
-	private void addToCart(ActionEvent event, Product product, int bestand) {
-		int amount = 1;
-		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
-		
-		// Check if product already is in cart
-		if(Main.shoppingCart.stream().anyMatch(o -> o.getId() == addedProduct.getId())) {
-			for(int i=0; i<Main.shoppingCart.size(); i++) {
-				int id = Main.shoppingCart.get(i).getId(); 
-			    if (id == addedProduct.getId()) {
-			    	int cartAmount = Main.shoppingCart.get(i).getAmount()+amount;
-			    	
-			    	//prevent cartAmound being bigger than stock
-			    	if (cartAmount > bestand) {
-			    		cartAmount = bestand;
-			    	}
-			        Main.shoppingCart.get(i).setAmount(cartAmount);
-			    }
-			}
-		}
-		else {
-			Main.shoppingCart.add(addedProduct);
-		}
-	}
 
 	
 	@FXML
