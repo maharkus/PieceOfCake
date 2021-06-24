@@ -111,11 +111,11 @@ public class shoppingCartController {
 			Text productAmountText = (Text) newLoadedPane.lookup("#productAmount");
 			int stock = Main.shoppingCart.get(i).getBestand();
 			BtAdd.setOnAction(
-					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock, (int) index, (Text) productPrice));
+					event -> increaseAmount((ActionEvent) event, (Text) productAmountText, (int) stock, (int) index, (Text) productPrice, (Text) gesamtBetrag));
 			BtSubtract.setOnAction(
 					event -> {
 						try {
-							decreaseAmount((ActionEvent) event, (Text) productAmountText, (int) index, (Text) productPrice);
+							decreaseAmount((ActionEvent) event, (Text) productAmountText, (int) index, (Text) productPrice, (Text) gesamtBetrag);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -128,7 +128,7 @@ public class shoppingCartController {
 		return grid;
 	}
 	
-	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand, int index, Text priceText) {
+	private void increaseAmount(ActionEvent event, Text productAmountText, int bestand, int index, Text priceText, Text g) {
 		int amount = Integer.parseInt(productAmountText.getText());
 		if(amount < bestand ) {
 			amount = amount+1;
@@ -139,9 +139,10 @@ public class shoppingCartController {
 		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 		String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
 		priceText.setText(euroPrice);
+		setTotal(g);
 	}
 	
-	private void decreaseAmount(ActionEvent event, Text productAmountText, int index, Text priceText) throws IOException {
+	private void decreaseAmount(ActionEvent event, Text productAmountText, int index, Text priceText, Text g) throws IOException {
 		int amount = Main.shoppingCart.get(index).getAmount();
 		if(amount > 1 ) {
 			amount--;
@@ -156,6 +157,7 @@ public class shoppingCartController {
 		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 		String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
 		priceText.setText(euroPrice);
+		setTotal(g);
 	}
 	
 	public void setTotal(Text g) {
