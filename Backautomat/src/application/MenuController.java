@@ -81,6 +81,9 @@ public class MenuController {
 
     @FXML
     private Button heissgetraenke;
+    
+    @FXML
+    private Button allProductsBt;
 
 
 	@FXML
