@@ -51,6 +51,12 @@ public class allProductsController {
 
 	@FXML
 	private TextField searchBar;
+	
+	@FXML
+    private Button sortAtoZBt;
+
+    @FXML
+    private Button sortPriceBt;
 
 	private int row;
 	
