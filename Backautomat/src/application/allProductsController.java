@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 import application.classes.Database;
 import application.classes.Product;
@@ -120,7 +121,7 @@ public class allProductsController {
 		}
 	}
 
-	public GridPane createGrid() throws IOException {
+	public GridPane createGrid(ArrayList<Product> pl) throws IOException {
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.TOP_LEFT);
 		grid.setHgap(30);
@@ -234,11 +235,31 @@ public class allProductsController {
 
 		}
 	}
+	public ArrayList<Product> sortieralgorithmusPreis (ArrayList<Product> preis){
+
+	        boolean sorted = false;
+	        Product temp;
+	        while(!sorted) {
+	            sorted = true;
+	            for (int i = 0; i < preis.size() - 1; i++) {
+	                if (preis.get(i).getPreis() > preis.get(i+1).getPreis()) {
+	                    temp = preis.get(i);
+	                    preis.set(i, preis.get(i+1));
+	                    preis.set(i+1, temp);
+	                    sorted = false;
+	                }
+	            }
+	            
+	        }
+	        return preis;
+	 }
+	    
+
+	
 	@FXML
 	public void initialize() throws IOException {
 		getProducts();
-		productGrid.add(createGrid(), 0, row);
-		categoryText.setText(Main.selectedCat);
+		productGrid.add(createGrid(sortieralgorithmusPreis(pl)), 0, row);
 		setTotal(scBt);
 	}
 

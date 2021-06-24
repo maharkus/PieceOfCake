@@ -100,7 +100,7 @@
                   <Font name="Courier" size="40.0" />
                </font>
             </Button>
-            <Button fx:id="sortPriceBt" layoutX="1455.0" layoutY="260.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: ffffff; -fx-border-width: 8; -fx-border-radius: 32; -fx-border-color: black;" text="Preis">
+            <Button fx:id="sortPriceBt" layoutX="1455.0" layoutY="260.0" mnemonicParsing="false" onAction="#sortPrice" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: ffffff; -fx-border-width: 8; -fx-border-radius: 32; -fx-border-color: black;" text="Preis">
                <font>
                   <Font name="Courier" size="40.0" />
                </font>
