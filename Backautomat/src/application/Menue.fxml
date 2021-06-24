@@ -193,7 +193,7 @@
 				</GridPane>
             <AnchorPane layoutX="50.0" layoutY="350.0" prefHeight="540.0" prefWidth="420.0" style="-fx-border-color: #000000; -fx-border-radius: 32; -fx-border-width: 8;">
                <children>
-						<ImageView fx:id="Angebotsbild" fitHeight="235.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+						<ImageView fx:id="Angebotsbild" fitHeight="235.0" fitWidth="350.0" layoutX="33.0" pickOnBounds="true" preserveRatio="true" />
 						<Text fx:id="productName" layoutX="131.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
 							<font>
 								<Font name="Courier New Bold" size="32.0" />
@@ -215,7 +215,7 @@
 						</Button>
                </children>
             </AnchorPane>
-            <Button fx:id="allProductsBt" layoutX="50.0" layoutY="920.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="420.0" style="-fx-background-color: ffffff; -fx-border-color: black; -fx-border-width: 8; -fx-border-radius: 32;" text="Alle Produkte">
+            <Button fx:id="allProductsBt" layoutX="50.0" layoutY="920.0" mnemonicParsing="false" onAction="#handleBtAllProducts" prefHeight="100.0" prefWidth="420.0" style="-fx-background-color: ffffff; -fx-border-color: black; -fx-border-width: 8; -fx-border-radius: 32;" text="Alle Produkte">
                <font>
                   <Font name="Courier Bold" size="40.0" />
                </font>
