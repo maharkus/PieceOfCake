@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import application.classes.Database;
 import application.classes.Product;
@@ -86,6 +87,28 @@ public class allProductsController {
 
 	}
 
+
+	public ArrayList<Product> sortAlphabetical(ArrayList<Product> products) {
+		
+		for (int i = 0; i <= products.size() - 1; i++) {
+            int minIndex = i;
+            Product index = products.get(i);
+            int compare = 0;
+            int j;
+            for (j = i + 1; j < products.size(); j++) {
+                compare = index.getProduktname().compareTo(products.get(j).getProduktname());
+                if (compare > 0) {
+                    index = products.get(j);
+                    minIndex = j; } }
+            if(minIndex != 1) {
+                Product temporaer = products.get(minIndex);
+                products.set(minIndex, products.get(i));    
+                products.set(i, temporaer); }
+
+        }
+		return products;
+	}
+
 	@FXML
 	void getProducts() {
 
@@ -120,11 +143,13 @@ public class allProductsController {
 		}
 	}
 
-	public GridPane createGrid() throws IOException {
+	public GridPane createGrid(ArrayList<Product> pl) throws IOException {
+
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.TOP_LEFT);
 		grid.setHgap(30);
 		grid.setVgap(30);
+    	productWrap.setContent(grid);
 
 		for (int i = 0; i < pl.size(); i++) {
 			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/products.fxml"));
@@ -162,8 +187,7 @@ public class allProductsController {
 			NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 			String euroPrice = numberFormat.format(pl.get(i).getPreis());
 			productPrice.setText(euroPrice);
-		}
-		;
+		};
 
 		return grid;
 	}
@@ -211,6 +235,12 @@ public class allProductsController {
 		setTotal(scBt);
 	}
 	
+	public void sortAtoZ() throws IOException {
+	}
+	
+	public void sortByPrice() throws IOException {
+	}
+	
 	public void setTotal(Button b) {
 		Double total = 0.00;
 		for(ShoppingCartProduct p : Main.shoppingCart) {
@@ -237,8 +267,7 @@ public class allProductsController {
 	@FXML
 	public void initialize() throws IOException {
 		getProducts();
-		productGrid.add(createGrid(), 0, row);
-		categoryText.setText(Main.selectedCat);
+		productGrid.add(createGrid(sortAlphabetical(pl)), 0, row);
 		setTotal(scBt);
 	}
 

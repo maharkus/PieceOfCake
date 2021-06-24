@@ -77,7 +77,7 @@ public class shoppingCartController {
     }
     
     public GridPane createGrid() throws IOException {
-    	
+
     	productWrap.setContent(null);
     	
 		GridPane grid = new GridPane();

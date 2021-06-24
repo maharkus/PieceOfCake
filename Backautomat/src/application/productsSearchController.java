@@ -128,7 +128,7 @@ public class productsSearchController {
             int j;
             for (j = i + 1; j < products.size(); j++) {
                 compare = index.getProduktname().compareTo(products.get(j).getProduktname());
-                if (compare < 0) {
+                if (compare > 0) {
                     index = products.get(j);
                     minIndex = j; } }
             if(minIndex != 1) {

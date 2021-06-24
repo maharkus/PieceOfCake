@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.appProductsController">
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.allProductsController">
    <children>
       <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: ffffff;">
          <children>
@@ -39,7 +39,7 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="200.0" prefWidth="32.0" />
-                  <Text fx:id="categoryText" strokeType="OUTSIDE" strokeWidth="0.0" text="platzhalter" wrappingWidth="788.9412841796875">
+                  <Text fx:id="categoryText" strokeType="OUTSIDE" strokeWidth="0.0" text="Alle Produkte" wrappingWidth="788.9412841796875">
                      <font>
                         <Font name="Rampage Brush" size="140.0" />
                      </font>
@@ -95,12 +95,12 @@
                   </GridPane>
                </content>
             </ScrollPane>
-            <Button fx:id="sortAtoZBt" layoutX="1680.0" layoutY="260.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: ffffff; -fx-border-width: 8; -fx-border-radius: 32; -fx-border-color: black;" text="A-Z">
+            <Button fx:id="sortAtoZBt" layoutX="1680.0" layoutY="260.0" mnemonicParsing="false" onAction="#sortAtoZ" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: ffffff; -fx-border-width: 8; -fx-border-color: black;" text="A-Z">
                <font>
                   <Font name="Courier" size="40.0" />
                </font>
             </Button>
-            <Button fx:id="sortPriceBt" layoutX="1455.0" layoutY="260.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: ffffff; -fx-border-width: 8; -fx-border-radius: 32; -fx-border-color: black;" text="Preis">
+            <Button fx:id="sortPriceBt" layoutX="1455.0" layoutY="260.0" mnemonicParsing="false" onAction="#sortByPrice" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: ffffff; -fx-border-width: 8; -fx-border-color: black;" text="Preis">
                <font>
                   <Font name="Courier" size="40.0" />
                </font>
