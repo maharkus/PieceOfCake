@@ -146,6 +146,13 @@ public class shoppingCartController {
 		productAmountText.setText(String.valueOf(amount));
 	}
 
+	public void clearOrder() throws IOException {
+		Main.shoppingCart.clear();
+		Main.history.clear();
+    	Parent root = FXMLLoader.load(getClass().getResource("startScreen.fxml"));
+    	Stage window = (Stage) buyBt.getScene().getWindow();
+    	window.setScene(new Scene(root, 1920, 1080));
+	}
     
     public void initialize() throws IOException {
 		shoppingCartGrid.add(createGrid(), 0, row);

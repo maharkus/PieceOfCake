@@ -43,7 +43,7 @@
                         <Font name="Courier New Bold" size="46.0" />
                      </font>
                   </Text>
-                  <Button fx:id="cancelBuyBt" layoutX="89.0" layoutY="921.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="Bestellung &#10;abbrechen" textAlignment="CENTER">
+                  <Button fx:id="cancelBuyBt" layoutX="89.0" layoutY="921.0" mnemonicParsing="false" onAction="#clearOrder" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="Bestellung &#10;abbrechen" textAlignment="CENTER">
                      <font>
                         <Font name="Courier New Bold" size="32.0" />
                      </font>
