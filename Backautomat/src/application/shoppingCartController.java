@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import application.classes.Product;
+import application.classes.ShoppingCartProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,6 +46,9 @@ public class shoppingCartController {
 
     @FXML
 	private ScrollPane productWrap;
+    
+    @FXML
+    private Text gesamtBetrag;
     
 
 	private int row;
@@ -153,6 +157,19 @@ public class shoppingCartController {
 		String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
 		priceText.setText(euroPrice);
 	}
+	
+	public void setTotal(Text g) {
+		Double total = 0.00;
+		for(ShoppingCartProduct p : Main.shoppingCart) {
+			total += p.getAmount()*p.getPreis();
+		}
+
+		Locale locale = Locale.GERMANY;
+		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+		String euroPrice = numberFormat.format(total);
+		g.setText(euroPrice);
+		
+	}
 
 	public void clearOrder() throws IOException {
 		Main.shoppingCart.clear();
@@ -164,5 +181,6 @@ public class shoppingCartController {
     
     public void initialize() throws IOException {
 		shoppingCartGrid.add(createGrid(), 0, row);
+		setTotal(gesamtBetrag);
 	}
 }
