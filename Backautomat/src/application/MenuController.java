@@ -107,6 +107,16 @@ public class MenuController {
 		Stage window = (Stage) goBackBt.getScene().getWindow();
 		window.setScene(new Scene(root, 1920, 1080));
 	}
+	
+	@FXML
+	void handleBtAllProducts(ActionEvent event) throws IOException {
+
+		Main.history.add("Menue.fxml");
+
+		Parent root = FXMLLoader.load(getClass().getResource("allProducts.fxml"));
+		Stage window = (Stage) goBackBt.getScene().getWindow();
+		window.setScene(new Scene(root, 1920, 1080));
+	}
 
 	@FXML
 	void handleBtSearch(ActionEvent event) {
