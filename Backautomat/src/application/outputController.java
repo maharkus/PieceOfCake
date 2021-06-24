@@ -68,6 +68,7 @@ public class outputController {
 		statement.executeBatch();
 		database.getConnection().close();
 		
+		
 		shoppingCart.clear();
 		Main.history.clear();
 
