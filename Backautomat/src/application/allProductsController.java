@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Locale;
 import application.classes.Database;
 import application.classes.Product;
@@ -87,6 +87,7 @@ public class allProductsController {
 
 	}
 
+
 	@FXML
 	void getProducts() {
 
@@ -163,8 +164,7 @@ public class allProductsController {
 			NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 			String euroPrice = numberFormat.format(pl.get(i).getPreis());
 			productPrice.setText(euroPrice);
-		}
-		;
+		};
 
 		return grid;
 	}
