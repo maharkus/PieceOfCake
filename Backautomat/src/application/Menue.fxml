@@ -193,7 +193,7 @@
 				</GridPane>
             <AnchorPane layoutX="50.0" layoutY="350.0" prefHeight="540.0" prefWidth="420.0" style="-fx-border-color: #000000; -fx-border-radius: 32; -fx-border-width: 8;">
                <children>
-						<ImageView fx:id="Angebotsbild" fitHeight="235.0" fitWidth="350.0" layoutX="33.0" pickOnBounds="true" preserveRatio="true" />
+						<ImageView fx:id="Angebotsbild" fitHeight="230.0" fitWidth="350.0" layoutX="33.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
 						<Text fx:id="productName" layoutX="131.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
 							<font>
 								<Font name="Courier New Bold" size="32.0" />
