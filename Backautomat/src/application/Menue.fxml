@@ -38,7 +38,7 @@
                      </graphic>
                   </Button>
                   <Pane prefHeight="200.0" prefWidth="32.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="788.9412841796875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menü" wrappingWidth="788.9412841796875">
                      <font>
                         <Font name="Rampage Brush" size="140.0" />
                      </font>
@@ -199,7 +199,7 @@
 								<Font name="Courier New Bold" size="32.0" />
 							</font>
 						</Text>
-                  <Text fx:id="angebotstext" layoutX="48.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Angebotstext" wrappingWidth="332.046875">
+                  <Text fx:id="angebotstext" layoutX="48.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Angebotstext" wrappingWidth="332.046875">
                      <font>
                         <Font name="Courier New" size="30.0" />
                      </font>

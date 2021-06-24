@@ -9,36 +9,36 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: ffffff; -fx-border-radius: 0; -fx-border-color: black; -fx-border-width: 8;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="productImage" fitHeight="500.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="productImage" fitHeight="484.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../res/product_images/11.jpg" />
          </image></ImageView>
-      <Text fx:id="productName" layoutX="424.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder" textAlignment="CENTER" wrappingWidth="450.0">
+      <Text fx:id="productName" layoutX="424.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder" textAlignment="CENTER" wrappingWidth="450.0">
          <font>
-            <Font name="Courier New Bold" size="48.0" />
+            <Font name="Courier New" size="32.0" />
          </font>
       </Text>
-      <Button fx:id="addBt" layoutX="686.0" layoutY="278.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" style="-fx-background-color: ff8800; -fx-background-radius: 16;" text="+">
+      <Button fx:id="addBt" layoutX="686.0" layoutY="265.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" style="-fx-background-color: ff8800; -fx-background-radius: 16;" text="+">
          <font>
             <Font name="Arial Bold" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="substractBt" layoutX="544.0" layoutY="278.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" style="-fx-border-color: ff8800; -fx-background-radius: 16; -fx-background-color: ffffff; -fx-border-radius: 16;" text="-">
+      <Button fx:id="substractBt" layoutX="544.0" layoutY="265.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" style="-fx-border-color: ff8800; -fx-background-radius: 16; -fx-background-color: ffffff; -fx-border-radius: 16;" text="-">
          <font>
             <Font name="CourierStd-Bold" size="36.0" />
          </font>
       </Button>
-      <Text fx:id="productAmount" layoutX="614.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="75.0">
+      <Text fx:id="productAmount" layoutX="614.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="75.0">
          <font>
-            <Font name="CourierStd-Bold" size="48.0" />
+            <Font name="Courier" size="48.0" />
          </font>
       </Text>
-      <Text fx:id="productPrice" layoutX="424.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00€" textAlignment="CENTER" wrappingWidth="450.0">
+      <Text fx:id="productPrice" layoutX="424.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00€" textAlignment="CENTER" wrappingWidth="450.0">
          <font>
-            <Font name="Courier New" size="96.0" />
+            <Font name="Courier New Bold" size="96.0" />
          </font>
       </Text>
-      <Button fx:id="addToSc" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="420.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="zum Warenkorb">
+      <Button fx:id="addToSc" layoutX="440.0" layoutY="379.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="420.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;" text="zum Warenkorb">
          <font>
             <Font name="Courier New" size="36.0" />
          </font>

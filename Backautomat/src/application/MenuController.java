@@ -173,7 +173,7 @@ public class MenuController {
 		angebotstext.setText(Startseitenprodukt.getAngebottext());
 		
 		//change image
-        File file = new File("res/product_images/" + Startseitenprodukt.getId() + ".jpg");
+        File file = new File("res/product_images/" + Startseitenprodukt.getId() + ".png");
         Image image = new Image(file.toURI().toString());
         Angebotsbild.setImage(image);
 
