@@ -95,7 +95,7 @@ public class shoppingCartController {
 			Text productPrice = (Text) newLoadedPane.lookup("#productPrice");
 			Locale locale = Locale.GERMANY;
 			NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-			String euroPrice = numberFormat.format(Main.shoppingCart.get(i).getPreis());
+			String euroPrice = numberFormat.format(Main.shoppingCart.get(i).getPreis() * Main.shoppingCart.get(i).getAmount());
 			productPrice.setText(euroPrice);
 			
 			Text productAmount = (Text) newLoadedPane.lookup("#productAmount");
