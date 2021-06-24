@@ -191,20 +191,20 @@
 						</Button>
 					</children>
 				</GridPane>
-            <AnchorPane layoutX="50.0" layoutY="350.0" prefHeight="650.0" prefWidth="200.0" style="-fx-border-color: #000000; -fx-border-radius: 32; -fx-border-width: 8;">
+            <AnchorPane layoutX="50.0" layoutY="350.0" prefHeight="540.0" prefWidth="420.0" style="-fx-border-color: #000000; -fx-border-radius: 32; -fx-border-width: 8;">
                <children>
-						<ImageView fx:id="Angebotsbild" fitHeight="325.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
-						<Text fx:id="productName" layoutX="121.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
+						<ImageView fx:id="Angebotsbild" fitHeight="235.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+						<Text fx:id="productName" layoutX="131.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tagesmenü">
 							<font>
 								<Font name="Courier New Bold" size="32.0" />
 							</font>
 						</Text>
-                  <Text fx:id="angebotstext" layoutX="38.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Angebotstext" wrappingWidth="332.046875">
+                  <Text fx:id="angebotstext" layoutX="48.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Angebotstext" wrappingWidth="332.046875">
                      <font>
                         <Font name="Courier New" size="30.0" />
                      </font>
                   </Text>
-						<Button fx:id="addToSc" layoutX="33.0" layoutY="531.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="350.0" style="-fx-background-color: #ff8800; -fx-background-radius: 32;">
+						<Button fx:id="addToSc" layoutX="33.0" layoutY="422.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="350.0" style="-fx-background-color: #ff8800; -fx-background-radius: 32;">
 							<graphic>
 								<ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -215,6 +215,11 @@
 						</Button>
                </children>
             </AnchorPane>
+            <Button fx:id="allProductsBt" layoutX="50.0" layoutY="920.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="420.0" style="-fx-background-color: ffffff; -fx-border-color: black; -fx-border-width: 8; -fx-border-radius: 32;" text="Alle Produkte">
+               <font>
+                  <Font name="Courier Bold" size="40.0" />
+               </font>
+            </Button>
 			</children>
 		</AnchorPane>
 	</children>
