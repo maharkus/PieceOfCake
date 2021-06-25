@@ -129,8 +129,8 @@ public class allProductsController {
 		grid.setVgap(30);
 
 		for (int i = 0; i < pl.size(); i++) {
-			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/products.fxml"));
-			grid.add(newLoadedPane, (i) % 2, Integer.valueOf((int) Math.floor((i) / 2)));
+			Pane newLoadedPane = FXMLLoader.load(getClass().getResource("/application/productSmall.fxml"));
+			grid.add(newLoadedPane, (i) % 4, Integer.valueOf((int) Math.floor((i) / 4)));
 
 			// Change Product Image
 			ImageView productImage = (ImageView) newLoadedPane.lookup("#productImage");
