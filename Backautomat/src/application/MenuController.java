@@ -162,7 +162,14 @@ public class MenuController {
 		}
 	}
 	
+	public void clickSubmitSearch() throws IOException {
+		Main.searchTerm = searchBar.getText();
+		Main.history.add("Menue.fxml");
+		Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
+		Stage window = (Stage) goBackBt.getScene().getWindow();
+		window.setScene(new Scene(root, 1920, 1080));
 
+	}
 		
 	@FXML
 	public void initialize() throws IOException {

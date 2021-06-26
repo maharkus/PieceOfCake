@@ -55,7 +55,7 @@
                         <Insets left="40.0" />
                      </padding>
                   </TextField>
-                  <Button fx:id="searchBt" mnemonicParsing="false" prefHeight="148.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;">
+                  <Button fx:id="searchBt" mnemonicParsing="false" onAction="#clickSubmitSearch" prefHeight="148.0" prefWidth="150.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;">
                      <font>
                         <Font name="Courier New" size="20.0" />
                      </font>

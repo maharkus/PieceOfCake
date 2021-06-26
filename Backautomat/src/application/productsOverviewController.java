@@ -177,7 +177,15 @@ public class productsOverviewController {
 		}
 		productAmountText.setText(Integer.toString(amount).toString());
 	}
+	
+	public void clickSubmitSearch() throws IOException {
+		Main.searchTerm = searchBar.getText();
+		Main.history.add("Menue.fxml");
+		Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
+		Stage window = (Stage) goBackBt.getScene().getWindow();
+		window.setScene(new Scene(root, 1920, 1080));
 
+	}
 
 	private void addToCart(ActionEvent event, Product product, Text productAmountText, int bestand) {
 		int amount = Integer.parseInt(productAmountText.getText());

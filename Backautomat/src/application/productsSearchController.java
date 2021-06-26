@@ -213,6 +213,15 @@ public class productsSearchController {
 		setTotal(scBt);
 	}
 	
+	public void clickSubmitSearch() throws IOException {
+		Main.searchTerm = searchBar.getText();
+		Main.history.add("Menue.fxml");
+		Parent root = FXMLLoader.load(getClass().getResource("productsSearch.fxml"));
+		Stage window = (Stage) goBackBt.getScene().getWindow();
+		window.setScene(new Scene(root, 1920, 1080));
+
+	}
+	
 	public void setTotal(Button b) {
 		Double total = 0.00;
 		for(ShoppingCartProduct p : Main.shoppingCart) {
