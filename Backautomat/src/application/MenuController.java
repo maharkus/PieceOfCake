@@ -191,15 +191,15 @@ public class MenuController {
 	
 	//add to cart
 	private void addToCart(ActionEvent event, Product product, int bestand) {
-		int amount = 1;
-		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, amount);
+		
+		ShoppingCartProduct addedProduct = new ShoppingCartProduct(product, 1);
 		
 		// Check if product already is in cart
 		if(Main.shoppingCart.stream().anyMatch(o -> o.getId() == addedProduct.getId())) {
 			for(int i=0; i<Main.shoppingCart.size(); i++) {
 				int id = Main.shoppingCart.get(i).getId(); 
 			    if (id == addedProduct.getId()) {
-			    	int cartAmount = Main.shoppingCart.get(i).getAmount()+amount;
+			    	int cartAmount = Main.shoppingCart.get(i).getAmount()+1;
 			    	
 			    	//prevent cartAmound being bigger than stock
 			    	if (cartAmount > bestand) {
@@ -212,6 +212,8 @@ public class MenuController {
 		else {
 			Main.shoppingCart.add(addedProduct);
 		}
+		System.out.println(Main.shoppingCart.toString());
+		setTotal(scBt);
 	}
 
 
