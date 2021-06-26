@@ -147,16 +147,16 @@ public class shoppingCartController {
 		if(amount > 1 ) {
 			amount--;
 			Main.shoppingCart.get(index).setAmount(amount);
+			productAmountText.setText(String.valueOf(amount));
+			Locale locale = Locale.GERMANY;
+			NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+			String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
+			priceText.setText(euroPrice);
 		}
 		else {
 			Main.shoppingCart.remove(index);
 			createGrid();
 		}
-		productAmountText.setText(String.valueOf(amount));
-		Locale locale = Locale.GERMANY;
-		NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
-		String euroPrice = numberFormat.format(Main.shoppingCart.get(index).getPreis() * Main.shoppingCart.get(index).getAmount());
-		priceText.setText(euroPrice);
 		setTotal(g);
 	}
 	

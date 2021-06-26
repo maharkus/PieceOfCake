@@ -51,6 +51,7 @@ public class startScreenController {
 			Startseitenprodukt.setProduktname(results.getString("produktname"));
 			Startseitenprodukt.setPreis(results.getDouble("preis"));
 			Startseitenprodukt.setAngebottext(results.getString("angebottext"));
+			Startseitenprodukt.setBestand(results.getInt("stueckzahl"));
 		}
 
 		productName.setText(Startseitenprodukt.getProduktname());
