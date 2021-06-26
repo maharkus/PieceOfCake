@@ -45,7 +45,7 @@
                   </Text>
                   <TextField fx:id="searchBar" onKeyReleased="#keyPressesSubmitSearch" prefHeight="149.0" prefWidth="300.0" style="-fx-background-color: ff8800; -fx-background-radius: 32;">
                      <font>
-                        <Font name="Courier" size="32.0" />
+                        <Font name="Courier New Bold" size="32.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
